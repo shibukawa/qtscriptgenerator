@@ -1766,9 +1766,9 @@ AbstractMetaType *AbstractMetaBuilder::translateType(const TypeInfo &_typei, boo
         type = TypeDatabase::instance()->findFlagsType(qualified_name);
 
     // 7. No? Try looking it up as a container type
-    if (!type)
-        type = TypeDatabase::instance()->findContainerType(name);
-
+    //if (!type) {
+    //    type = TypeDatabase::instance()->findContainerType(name);
+    //}
     // 8. No? Check if the current class is a template and this type is one
     //    of the parameters.
     if (type == 0 && m_current_class != 0) {

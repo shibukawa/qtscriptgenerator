@@ -10,7 +10,8 @@ HEADERS += \
         shellimplgenerator.h \
         shellheadergenerator.h \
         setupgenerator.h \
-        docgenerator.h
+        docgenerator.h \
+        jsxgenerator.h
 
 SOURCES += \
         generatorsetqtscript.cpp \
@@ -21,7 +22,8 @@ SOURCES += \
         shellimplgenerator.cpp \
         shellheadergenerator.cpp \
         setupgenerator.cpp \
-        docgenerator.cpp
+        docgenerator.cpp \
+        jsxgenerator.cpp
 
 CONFIG -= debug
 CONFIG += release

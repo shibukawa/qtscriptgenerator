@@ -45,12 +45,13 @@
 #include "shellheadergenerator.h"
 #include "shellimplgenerator.h"
 #include "docgenerator.h"
+#include "jsxgenerator.h"
 
 GeneratorSet *GeneratorSet::getInstance() {
     return new GeneratorSetQtScript();
 }
 
-GeneratorSetQtScript::GeneratorSetQtScript() 
+GeneratorSetQtScript::GeneratorSetQtScript()
 {}
 
 QString GeneratorSetQtScript::usage() {
@@ -80,7 +81,7 @@ QString GeneratorSetQtScript::generate() {
     AbstractMetaClassList classes = builder.classesTopologicalSorted();
     QSet<QString> declaredTypeNames = builder.qtMetaTypeDeclaredTypeNames();
 
-    PriGenerator priGenerator;
+    /*PriGenerator priGenerator;
     priGenerator.setOutputDirectory(outDir);
 
     SetupGenerator setupGenerator;
@@ -102,37 +103,42 @@ QString GeneratorSetQtScript::generate() {
     ShellHeaderGenerator shellHeaderGenerator(&priGenerator);
     shellHeaderGenerator.setOutputDirectory(outDir);
     shellHeaderGenerator.setClasses(classes);
-    shellHeaderGenerator.generate();
+    shellHeaderGenerator.generate();*/
 
     DocGenerator docGenerator;
     docGenerator.setOutputDirectory(outDir);
     docGenerator.setClasses(classes);
     docGenerator.generate();
 
-    priGenerator.generate();
-    setupGenerator.generate();
+    JSXGenerator jsxGenerator;
+    jsxGenerator.setOutputDirectory(outDir);
+    jsxGenerator.setClasses(classes);
+    jsxGenerator.generate();
+
+    //priGenerator.generate();
+    //setupGenerator.generate();
 
     return QString("Classes in typesystem: %1\n"
                    "Generated:\n"
-                   "  - classes...: %2 (%3)\n"
-                   "  - header....: %4 (%5)\n"
-                   "  - impl......: %6 (%7)\n"
-                   "  - modules...: %8 (%9)\n"
-                   "  - pri.......: %10 (%11)\n"
+                   //"  - classes...: %2 (%3)\n"
+                   //"  - header....: %4 (%5)\n"
+                   //"  - impl......: %6 (%7)\n"
+                   //"  - modules...: %8 (%9)\n"
+                   //"  - pri.......: %10 (%11)\n"
                    )
-        .arg(builder.classes().size())
-        .arg(classGenerator.numGenerated())
-        .arg(classGenerator.numGeneratedAndWritten())
+        .arg(builder.classes().size());
+        //.arg(classGenerator.numGenerated())
+        //.arg(classGenerator.numGeneratedAndWritten())
 
-        .arg(shellHeaderGenerator.numGenerated())
-        .arg(shellHeaderGenerator.numGeneratedAndWritten())
+        //.arg(shellHeaderGenerator.numGenerated())
+        //.arg(shellHeaderGenerator.numGeneratedAndWritten())
 
-        .arg(shellImplGenerator.numGenerated())
-        .arg(shellImplGenerator.numGeneratedAndWritten())
+        //.arg(shellImplGenerator.numGenerated())
+        //.arg(shellImplGenerator.numGeneratedAndWritten())
 
-        .arg(setupGenerator.numGenerated())
-        .arg(setupGenerator.numGeneratedAndWritten())
+        //.arg(setupGenerator.numGenerated())
+        //.arg(setupGenerator.numGeneratedAndWritten())
 
-        .arg(priGenerator.numGenerated())
-        .arg(priGenerator.numGeneratedAndWritten());
+        //.arg(priGenerator.numGenerated())
+        //.arg(priGenerator.numGeneratedAndWritten());
 }
