@@ -42,6 +42,8 @@
 #define QT_NO_STL
 #include <QtCore/QtCore>
 #include <QtGui/QtGui>
+#include <QtWidgets/QtWidgets>
+#include <QtPrintSupport/QtPrintSupport>
 #include <QtNetwork/QtNetwork>
 #include <QtSql/QtSql>
 #include <QtSvg/QtSvg>
@@ -55,6 +57,7 @@
 
 #ifndef QT_NO_WEBKIT
 #  include <QtWebKit/QtWebKit>
+#  include <QtWebKitWidgets/QtWebKitWidgets>
 #endif
 
 #ifndef QT_NO_PHONON

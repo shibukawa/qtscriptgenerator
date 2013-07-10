@@ -5,8 +5,6 @@
     <rejection class="QWebHistory"/>
     <rejection class="QWebHistoryItem"/>
 
-    <rejection class="WebCore"/>
-
   <suppress-warning text="WARNING(MetaJavaBuilder) :: skipping field 'QWebPluginFactory_Plugin::mimeTypes' with unmatched type 'QList&lt;MimeType&gt;'" />
 
 </typesystem>

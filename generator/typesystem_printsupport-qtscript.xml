@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<typesystem package="com.trolltech.qt.printsupport">
+  <rejection class="QPrinterInfo"/>
+  <rejection class="QPrinterInfo"/> <!-- ### constructor takes QPrinter&, must become QPrinter* -->
+  <object-type name="QPrinter">
+    <extra-includes>
+        <include file-name="QPrinterInfo" location="global"/>
+    </extra-includes>
+  </object-type>
+</typesystem>

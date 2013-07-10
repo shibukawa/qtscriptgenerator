@@ -398,8 +398,6 @@
   <rejection class="QCoreApplication" function-name="eventFilter"/>
   <rejection class="QCoreApplication" function-name="filterEvent"/>
   <rejection class="QCoreApplication" function-name="setEventFilter"/>
-  <rejection class="QFile" function-name="setDecodingFunction"/>
-  <rejection class="QFile" function-name="setEncodingFunction"/>
   <rejection class="QList" function-name="begin"/>
   <rejection class="QList" function-name="constBegin"/>
   <rejection class="QList" function-name="constEnd"/>
@@ -462,7 +460,7 @@
     <extra-includes>
       <include file-name="QGesture" location="global"/>
     </extra-includes>
-
+  
     <extra-includes>
         <include file-name="QTextDocument" location="global"/>
     </extra-includes>
@@ -512,10 +510,10 @@
     <reject-enum-value name="ApplicationDeactivated"/>
   </enum-type>
   <enum-type name="QEventLoop::ProcessEventsFlag" flags="QEventLoop::ProcessEventsFlags"/>
-  <enum-type name="QFile::FileHandleFlag"/>
-  <enum-type name="QFile::FileError"/>
-  <enum-type name="QFile::MemoryMapFlags"/>
-  <enum-type name="QFile::Permission" flags="QFile::Permissions"/>
+  <enum-type name="QFileDevice::FileHandleFlag" flags="QFileDevice::FileHandleFlags"/>
+  <enum-type name="QFileDevice::FileError"/>
+  <enum-type name="QFileDevice::MemoryMapFlags"/>
+  <enum-type name="QFileDevice::Permission" flags="QFileDevice::Permissions"/>
   <enum-type name="QIODevice::OpenModeFlag" flags="QIODevice::OpenMode"/>
   <enum-type name="QLibraryInfo::LibraryLocation"/>
   <enum-type name="QLocale::FormatType"/>
@@ -611,7 +609,7 @@
 
   <enum-type name="QtConcurrent::ReduceOption" flags="QtConcurrent::ReduceOptions"/>
   <enum-type name="QtConcurrent::ThreadFunctionResult"/>
-
+ 
 
   <enum-type name="QCoreApplication::Encoding">
     <reject-enum-value name="DefaultCodec"/>
@@ -715,12 +713,12 @@
   </value-type>
 
   <value-type name="QPoint">
-    <modify-function signature="rx()" remove="all"/>
-    <modify-function signature="ry()" remove="all"/>
+    <modify-function signature="rx()" remove="all"/> 
+    <modify-function signature="ry()" remove="all"/> 
   </value-type>
   <value-type name="QPointF">
-    <modify-function signature="rx()" remove="all"/>
-    <modify-function signature="ry()" remove="all"/>
+    <modify-function signature="rx()" remove="all"/> 
+    <modify-function signature="ry()" remove="all"/> 
   </value-type>
 
   <value-type name="QRect">
@@ -845,7 +843,7 @@
     <modify-function signature="toUInt(QString,bool*,int)const" remove="all"/>
     <modify-function signature="toULongLong(QString,bool*,int)const" remove="all"/>
     <modify-function signature="operator=(QLocale)" remove="all"/>
-
+  
     <extra-includes>
         <include file-name="QDate" location="global"/>
     </extra-includes>
@@ -860,7 +858,7 @@
           <remove-argument/>
           <conversion-rule class="native">
           <insert-template name="core.prepare_removed_bool*_argument"/>
-          </conversion-rule>
+          </conversion-rule>            
         </modify-argument>
         <modify-argument index="return">
           <conversion-rule class="native">
@@ -875,7 +873,7 @@
           <remove-argument/>
           <conversion-rule class="native">
           <insert-template name="core.prepare_removed_bool*_argument"/>
-          </conversion-rule>
+          </conversion-rule>            
         </modify-argument>
         <modify-argument index="return">
           <conversion-rule class="native">
@@ -890,7 +888,7 @@
           <remove-argument/>
           <conversion-rule class="native">
           <insert-template name="core.prepare_removed_bool*_argument"/>
-          </conversion-rule>
+          </conversion-rule>            
         </modify-argument>
         <modify-argument index="return">
           <conversion-rule class="native">
@@ -905,7 +903,7 @@
           <remove-argument/>
           <conversion-rule class="native">
           <insert-template name="core.prepare_removed_bool*_argument"/>
-          </conversion-rule>
+          </conversion-rule>            
         </modify-argument>
         <modify-argument index="return">
           <conversion-rule class="native">
@@ -924,7 +922,7 @@
           <remove-argument/>
           <conversion-rule class="native">
           <insert-template name="core.prepare_removed_bool*_argument"/>
-          </conversion-rule>
+          </conversion-rule>            
         </modify-argument>
         <modify-argument index="return">
           <conversion-rule class="native">
@@ -939,7 +937,7 @@
           <remove-argument/>
           <conversion-rule class="native">
           <insert-template name="core.prepare_removed_bool*_argument"/>
-          </conversion-rule>
+          </conversion-rule>            
         </modify-argument>
         <modify-argument index="return">
           <conversion-rule class="native">
@@ -961,7 +959,7 @@
     <modify-function signature="operator^=(QBitArray)" access="private"/>
     <modify-function signature="operator|=(QBitArray)" access="private"/>
     <modify-function signature="operator~()const" access="private"/>
-
+  
     <modify-function signature="at(int)const">
       <modify-argument index="1">
         <conversion-rule class="native">
@@ -969,7 +967,7 @@
           <replace from="%CLASS_NAME%" to="QBitArray"/>
           <replace from="%FUNCTION_NAME%" to="at"/>
         </insert-template>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
 
@@ -980,7 +978,7 @@
           <replace from="%CLASS_NAME%" to="QBitArray"/>
           <replace from="%FUNCTION_NAME%" to="clearBit"/>
         </insert-template>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
 
@@ -991,7 +989,7 @@
           <replace from="%CLASS_NAME%" to="QBitArray"/>
           <replace from="%FUNCTION_NAME%" to="setBit"/>
         </insert-template>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
 
@@ -1002,7 +1000,7 @@
           <replace from="%CLASS_NAME%" to="QBitArray"/>
           <replace from="%FUNCTION_NAME%" to="setBit"/>
         </insert-template>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
 
@@ -1013,7 +1011,7 @@
           <replace from="%CLASS_NAME%" to="QBitArray"/>
           <replace from="%FUNCTION_NAME%" to="testBit"/>
         </insert-template>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
 
@@ -1024,7 +1022,7 @@
           <replace from="%CLASS_NAME%" to="QBitArray"/>
           <replace from="%FUNCTION_NAME%" to="toggleBit"/>
         </insert-template>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
 
@@ -1079,7 +1077,7 @@
       <include file-name="QStringList" location="global"/>
     </extra-includes>
     <modify-function signature="operator=(QRegExp)" remove="all"/>
-
+  
     <modify-function signature="cap(int)" remove="all"/>
     <modify-function signature="capturedTexts()" remove="all"/>
     <modify-function signature="pos(int)" remove="all"/>
@@ -1099,16 +1097,16 @@
           <reference-count action="ignore"/>
       </modify-argument>
     </modify-function>
-
+  
     <modify-function signature="readLink()const" remove="all"/>
     <!--### Obsolete in 4.3-->
-
+  
     <modify-function signature="QFileInfo(QFile)">
       <modify-argument index="1">
         <replace-type modified-type="QFile*"/>
         <conversion-rule class="native">
         QFile &amp; %out% = *qscriptvalue_cast&lt;QFile*&gt;(%in%);
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
     <modify-function signature="setFile(QFile)">
@@ -1116,7 +1114,7 @@
         <replace-type modified-type="QFile*"/>
         <conversion-rule class="native">
         QFile &amp; %out% = *qscriptvalue_cast&lt;QFile*&gt;(%in%);
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
   </value-type>
@@ -1170,7 +1168,7 @@
     <modify-function signature="operator+=(QByteArray)" remove="all"/>
     <modify-function signature="operator+=(QString)" remove="all"/>
     <modify-function signature="operator+=(char)" remove="all"/>
-
+  
 
     <inject-code class="native" position="beginning">
     Q_DECLARE_METATYPE(QScriptValue)
@@ -1181,7 +1179,7 @@
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_char*"/>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
 
@@ -1194,7 +1192,7 @@
           <replace from="%CLASS_NAME%" to="QByteArray"/>
           <replace from="%FUNCTION_NAME%" to="at"/>
         </insert-template>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
 
@@ -1210,7 +1208,7 @@
     </modify-function>
     <modify-function signature="append(char)">
       <modify-argument index="0" replace-value="this"/>
-      <rename to="appendByte"/>
+      <rename to="appendByte"/> 
     </modify-function>
 
     <modify-function signature="count(const char *)const" remove="all"/>
@@ -1225,7 +1223,7 @@
 
     <modify-function signature="indexOf(const char*,int)const" remove="all"/>
     <modify-function signature="indexOf(char,int)const">
-      <rename to="indexOfByte"/>
+      <rename to="indexOfByte"/> 
     </modify-function>
 
     <modify-function signature="insert(int,QByteArray)">
@@ -1242,7 +1240,7 @@
 
     <modify-function signature="lastIndexOf(const char*,int)const" remove="all"/>
     <modify-function signature="lastIndexOf(char,int)const">
-      <rename to="lastIndexOfByte"/>
+      <rename to="lastIndexOfByte"/> 
     </modify-function>
 
     <modify-function signature="prepend(QByteArray)">
@@ -1339,7 +1337,7 @@
           <remove-argument/>
           <conversion-rule class="native">
           <insert-template name="core.prepare_removed_bool*_argument"/>
-          </conversion-rule>
+          </conversion-rule>            
         </modify-argument>
         <modify-argument index="return">
           <conversion-rule class="native">
@@ -1354,7 +1352,7 @@
           <remove-argument/>
           <conversion-rule class="native">
           <insert-template name="core.prepare_removed_bool*_argument"/>
-          </conversion-rule>
+          </conversion-rule>            
         </modify-argument>
         <modify-argument index="return">
           <conversion-rule class="native">
@@ -1369,7 +1367,7 @@
           <remove-argument/>
           <conversion-rule class="native">
           <insert-template name="core.prepare_removed_bool*_argument"/>
-          </conversion-rule>
+          </conversion-rule>            
         </modify-argument>
         <modify-argument index="return">
           <conversion-rule class="native">
@@ -1384,7 +1382,7 @@
           <remove-argument/>
           <conversion-rule class="native">
           <insert-template name="core.prepare_removed_bool*_argument"/>
-          </conversion-rule>
+          </conversion-rule>            
         </modify-argument>
         <modify-argument index="return">
           <conversion-rule class="native">
@@ -1402,7 +1400,7 @@
   <value-type name="QEasingCurve">
     <modify-function signature="customType()const" remove="all"/>
     <modify-function signature="setCustomType(double)" remove="all"/>
-
+  
     <modify-function signature="QEasingCurve(QEasingCurve)" remove="all"/>
     <modify-function signature="operator=(QEasingCurve)" remove="all"/>
     <modify-function signature="operator==(const QEasingCurve &amp;)const" remove="all"/>
@@ -1423,7 +1421,7 @@
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_latin1"/>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
   </object-type>
@@ -1436,7 +1434,7 @@
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_char*"/>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
     <modify-function signature="assignProperty(QObject*,const char*,QVariant)">
@@ -1444,7 +1442,7 @@
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_char*"/>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
   </object-type>
@@ -1458,21 +1456,18 @@
   <!-- object-type name="QAbstractEventDispatcher"/ -->
   <object-type name="QEventLoop"/>
   <object-type name="QFile">
-    <modify-function signature="readLink()const" remove="all"/>
-    <!--### Obsolete in 4.3-->
-    <modify-function signature="readLink(QString)" remove="all"/>
-    <!--### Obsolete in 4.3-->
-    <modify-function signature="map(qint64,qint64,QFile::MemoryMapFlags)" remove="all"/>
-    <!-- Can't provide same API and performance -->
-    <modify-function signature="unmap(uchar*)" remove="all"/>
-    <!-- Can't provide same API and performance -->
-
     <modify-function signature="open(int,QFlags&lt;QIODevice::OpenModeFlag&gt;)" remove="all"/>
     <modify-function signature="decodeName(const char*)" remove="all"/>
     <modify-function signature="map(qint64,qint64,QFile::MemoryMapFlags)" remove="all"/>
     <modify-function signature="unmap(uchar*)" remove="all"/>
   </object-type>
 
+  <object-type name="QFileDevice">
+    <modify-function signature="map(qint64,qint64,QFile::MemoryMapFlags)" remove="all"/>
+    <!-- Can't provide same API and performance -->
+    <modify-function signature="unmap(uchar*)" remove="all"/>
+    <!-- Can't provide same API and performance -->
+  </object-type>
   <object-type name="QIODevice">
     <modify-function signature="peek(char *,qint64)" remove="all"/>
     <modify-function signature="read(char *,qint64)" remove="all"/>
@@ -1493,21 +1488,21 @@
   <object-type name="QSystemLocale"/>
   <object-type name="QTemporaryFile">
     <modify-function signature="fileName()const" rename="uniqueFilename"/>
-
+  
     <modify-function signature="createLocalFile(QFile&amp;)">
       <modify-argument index="1">
         <replace-type modified-type="QFile*"/>
         <conversion-rule class="native">
-        QFile &amp; %out% = *qscriptvalue_cast&lt;QFile*&gt;(%in%);
+            QFile &amp; %out% = *qscriptvalue_cast&lt;QFile*&gt;(%in%);
         </conversion-rule>
       </modify-argument>
     </modify-function>
     <modify-function signature="createNativeFile(QFile&amp;)">
       <modify-argument index="1">
         <replace-type modified-type="QFile*"/>
-        <conversion-rule class="native">
-        QFile &amp; %out% = *qscriptvalue_cast&lt;QFile*&gt;(%in%);
-        </conversion-rule>
+          <conversion-rule class="native">
+            QFile &amp; %out% = *qscriptvalue_cast&lt;QFile*&gt;(%in%);
+          </conversion-rule>            
       </modify-argument>
     </modify-function>
   </object-type>
@@ -1597,7 +1592,7 @@
     <modify-function signature="buffer()">
       <remove/>
     </modify-function>
-
+  
     <!-- ### modify to return value by pointer? -->
     <modify-function signature="buffer()const" remove="all"/>
     <modify-function signature="data()const" remove="all"/>
@@ -1648,7 +1643,7 @@
     <modify-function signature="mapping(QWidget*)const" remove="all"/>
 
     <modify-function signature="setMapping(QObject*,QWidget*)" remove="all"/>
-
+  
     <!-- ### overloads -->
     <modify-function signature="mapping(int)const">
       <rename to="mappingById"/>
@@ -1724,13 +1719,13 @@
       <include file-name="QVarLengthArray" location="global"/>
     </extra-includes>
 
-
+  
     <modify-function signature="property(const char*)const">
       <modify-argument index="1">
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_char*"/>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
 
@@ -1739,7 +1734,7 @@
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_char*"/>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
 
@@ -1748,7 +1743,7 @@
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_char*"/>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
   </object-type>
@@ -1800,7 +1795,7 @@
         <define-ownership class="java" owner="c++"/>
       </modify-argument>
     </modify-function>
-
+  
     <modify-function signature="QCoreApplication(int &amp;, char **)" remove="all"/>
     <!-- ### arguments() causes a warning: "QScriptValue::setProperty(arguments): cannot change flags of a native property" -->
     <modify-function signature="arguments()" remove="all"/>
@@ -1809,19 +1804,19 @@
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_char*"/>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
       <modify-argument index="2">
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_char*"/>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
       <modify-argument index="3">
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_char*"/>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
     <modify-function signature="translate(const char *,const char *,const char *,QCoreApplication::Encoding)">
@@ -1829,19 +1824,19 @@
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_char*"/>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
       <modify-argument index="2">
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_char*"/>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
       <modify-argument index="3">
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_char*"/>
-        </conversion-rule>
+        </conversion-rule>            
       </modify-argument>
     </modify-function>
 
@@ -1885,7 +1880,7 @@
     </modify-function>
     <modify-function signature="operator&lt;&lt;(unsigned int)">
       <remove/>
-    </modify-function>
+    </modify-function>     
     <modify-function signature="operator&lt;&lt;(unsigned long long)">
       <remove/>
     </modify-function>
@@ -1909,67 +1904,67 @@
     <modify-function signature="writeBytes(const char*,uint)">
       <remove/>
     </modify-function>
-
+  
       <modify-function signature="operator&gt;&gt;(signed char&amp;)" remove="all"/>
       <modify-function signature="operator&lt;&lt;(signed char)" remove="all"/>
 
-      <modify-function signature="operator&lt;&lt;(bool)">
-          <rename to="writeBoolean"/>
+      <modify-function signature="operator&lt;&lt;(bool)"> 
+          <rename to="writeBoolean"/> 
           <modify-argument index="0" replace-value="this"/>
       </modify-function>
-      <modify-function signature="operator&lt;&lt;(unsigned char)">
+      <modify-function signature="operator&lt;&lt;(unsigned char)">  
           <modify-argument index="0" replace-value="this"/>
-          <rename to="writeByte"/>
+          <rename to="writeByte"/> 
       </modify-function>
       <modify-function signature="operator&lt;&lt;(int)">
-          <rename to="writeInt"/>
+          <rename to="writeInt"/>  
           <modify-argument index="0" replace-value="this"/>
       </modify-function>
       <modify-function signature="operator&lt;&lt;(qint64)">
-          <rename to="writeLongLong"/>
+          <rename to="writeLongLong"/> 
           <modify-argument index="0" replace-value="this"/>
       </modify-function>
-      <modify-function signature="operator&lt;&lt;(float)">
-          <rename to="writeFloat"/>
+      <modify-function signature="operator&lt;&lt;(float)"> 
+          <rename to="writeFloat"/>  
           <modify-argument index="0" replace-value="this"/>
       </modify-function>
-      <modify-function signature="operator&lt;&lt;(double)">
-          <rename to="writeDouble"/>
+      <modify-function signature="operator&lt;&lt;(double)"> 
+          <rename to="writeDouble"/>  
           <modify-argument index="0" replace-value="this"/>
-      </modify-function>
+      </modify-function> 
       <modify-function signature="operator&lt;&lt;(short)">
-          <rename to="writeShort"/>
+          <rename to="writeShort"/>  
           <modify-argument index="0" replace-value="this"/>
       </modify-function>
 
-      <modify-function signature="operator&gt;&gt;(bool &amp;)">
+      <modify-function signature="operator&gt;&gt;(bool &amp;)"> 
           <rename to="readBoolean"/>
           <modify-argument index="1">
             <remove-argument/>
             <conversion-rule class="native">
             bool __result;
             bool &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             bool %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
-      <modify-function signature="operator&gt;&gt;(unsigned char &amp;)">
+      <modify-function signature="operator&gt;&gt;(unsigned char &amp;)">  
           <rename to="readByte"/>
           <modify-argument index="1">
             <remove-argument/>
             <conversion-rule class="native">
             unsigned char __result;
             unsigned char &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             int %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
       <modify-function signature="operator&gt;&gt;(int &amp;)">
@@ -1979,12 +1974,12 @@
             <conversion-rule class="native">
             int __result;
             int &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             int %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
       <modify-function signature="operator&gt;&gt;(uint &amp;)">
@@ -1994,12 +1989,12 @@
             <conversion-rule class="native">
             uint __result;
             uint &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             uint %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
       <modify-function signature="operator&gt;&gt;(qint64 &amp;)">
@@ -2009,12 +2004,12 @@
             <conversion-rule class="native">
             qint64 __result;
             qint64 &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             qint64 %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
       <modify-function signature="operator&gt;&gt;(unsigned long long &amp;)">
@@ -2024,44 +2019,44 @@
             <conversion-rule class="native">
             unsigned long long __result;
             unsigned long long &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             unsigned long long %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
-      <modify-function signature="operator&gt;&gt;(float &amp;)">
+      <modify-function signature="operator&gt;&gt;(float &amp;)"> 
           <rename to="readFloat"/>
           <modify-argument index="1">
             <remove-argument/>
             <conversion-rule class="native">
             float __result;
             float &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             float %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
-      <modify-function signature="operator&gt;&gt;(double &amp;)">
+      <modify-function signature="operator&gt;&gt;(double &amp;)"> 
           <rename to="readDouble"/>
           <modify-argument index="1">
             <remove-argument/>
             <conversion-rule class="native">
             double __result;
             double &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             double %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
-      </modify-function>
+      </modify-function> 
       <modify-function signature="operator&gt;&gt;(short &amp;)">
           <rename to="readShort"/>
           <modify-argument index="1">
@@ -2069,12 +2064,12 @@
             <conversion-rule class="native">
             short __result;
             short &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             short %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
       <modify-function signature="operator&gt;&gt;(unsigned short &amp;)">
@@ -2084,12 +2079,12 @@
             <conversion-rule class="native">
             unsigned short __result;
             unsigned short &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             unsigned short %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
   </object-type>
@@ -2179,48 +2174,48 @@
         <reference-count action="set" variable-name="__rcDevice"/>
       </modify-argument>
     </modify-function>
-
-      <modify-function signature="setCodec(const char *)">
+  
+      <modify-function signature="setCodec(const char *)"> 
         <modify-argument index="1">
           <replace-type modified-type="QString"/>
           <conversion-rule class="native">
             <insert-template name="core.convert_string_arg_to_char*"/>
-          </conversion-rule>
+          </conversion-rule>            
         </modify-argument>
       </modify-function>
 
-      <modify-function signature="operator&lt;&lt;(QBool)">
-          <rename to="writeBoolean"/>
+      <modify-function signature="operator&lt;&lt;(QBool)"> 
+          <rename to="writeBoolean"/> 
           <modify-argument index="0" replace-value="this"/>
       </modify-function>
-      <modify-function signature="operator&lt;&lt;(char)">
+      <modify-function signature="operator&lt;&lt;(char)">  
           <modify-argument index="0" replace-value="this"/>
-          <rename to="writeByte"/>
+          <rename to="writeByte"/> 
       </modify-function>
       <modify-function signature="operator&lt;&lt;(signed int)">
-          <rename to="writeInt"/>
+          <rename to="writeInt"/>  
           <modify-argument index="0" replace-value="this"/>
       </modify-function>
       <modify-function signature="operator&lt;&lt;(qlonglong)">
-          <rename to="writeLongLong"/>
+          <rename to="writeLongLong"/> 
           <modify-argument index="0" replace-value="this"/>
       </modify-function>
-      <modify-function signature="operator&lt;&lt;(float)">
-          <rename to="writeFloat"/>
+      <modify-function signature="operator&lt;&lt;(float)"> 
+          <rename to="writeFloat"/>  
           <modify-argument index="0" replace-value="this"/>
       </modify-function>
-      <modify-function signature="operator&lt;&lt;(double)">
-          <rename to="writeDouble"/>
+      <modify-function signature="operator&lt;&lt;(double)"> 
+          <rename to="writeDouble"/>  
           <modify-argument index="0" replace-value="this"/>
-      </modify-function>
+      </modify-function> 
       <modify-function signature="operator&lt;&lt;(signed short)">
-          <rename to="writeShort"/>
+          <rename to="writeShort"/>  
           <modify-argument index="0" replace-value="this"/>
       </modify-function>
       <modify-function signature="operator&lt;&lt;(const QByteArray&amp;)">
           <rename to="writeByteArray"/>
           <modify-argument index="0" replace-value="this"/>
-      </modify-function>
+      </modify-function>   
       <modify-function signature="operator&lt;&lt;(const QString&amp;)">
           <rename to="writeString"/>
           <modify-argument index="0" replace-value="this"/>
@@ -2233,12 +2228,12 @@
             <conversion-rule class="native">
             char __result;
             char &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             int %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
       <modify-function signature="operator&gt;&gt;(signed short&amp;)">
@@ -2248,12 +2243,12 @@
             <conversion-rule class="native">
             short __result;
             short &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             short %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
       <modify-function signature="operator&gt;&gt;(signed int&amp;)">
@@ -2263,12 +2258,12 @@
             <conversion-rule class="native">
             int __result;
             int &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             int %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
       <modify-function signature="operator&gt;&gt;(unsigned short&amp;)">
@@ -2278,12 +2273,12 @@
             <conversion-rule class="native">
             unsigned short __result;
             unsigned short &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             unsigned short %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
       <modify-function signature="operator&gt;&gt;(unsigned int&amp;)">
@@ -2293,12 +2288,12 @@
             <conversion-rule class="native">
             unsigned int __result;
             unsigned int &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             unsigned int %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
       <modify-function signature="operator&gt;&gt;(qlonglong&amp;)">
@@ -2308,12 +2303,12 @@
             <conversion-rule class="native">
             qlonglong __result;
             qlonglong &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             qlonglong %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
       <modify-function signature="operator&gt;&gt;(qulonglong&amp;)">
@@ -2323,12 +2318,12 @@
             <conversion-rule class="native">
             qulonglong __result;
             qulonglong &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             qulonglong %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
       <modify-function signature="operator&gt;&gt;(float&amp;)">
@@ -2338,12 +2333,12 @@
             <conversion-rule class="native">
             float __result;
             float &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             float %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
       <modify-function signature="operator&gt;&gt;(double&amp;)">
@@ -2353,17 +2348,17 @@
             <conversion-rule class="native">
             double __result;
             double &amp; %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
           <modify-argument index="0" replace-value="void">
             <conversion-rule class="native">
             double %out% = __result;
-            </conversion-rule>
+            </conversion-rule>            
           </modify-argument>
       </modify-function>
 
-      <modify-function signature="operator&lt;&lt;(qulonglong)" remove="all"/>
-      <modify-function signature="operator&gt;&gt;(qulonglong&amp;)" remove="all"/>
+      <modify-function signature="operator&lt;&lt;(qulonglong)" remove="all"/> 
+      <modify-function signature="operator&gt;&gt;(qulonglong&amp;)" remove="all"/> 
   </object-type>
 
   <object-type name="QSystemSemaphore"/>
@@ -2382,7 +2377,7 @@
   <value-type name="QtScriptVoidFuture" java-name="QFutureVoid">
     <modify-function signature="resultCount()const" remove="all"/>
     <modify-function signature="isResultReadyAt(int)const" remove="all"/>
-
+  
     <modify-function signature="operator==(const QFuture &amp;)const">
         <modify-argument index="1">
             <replace-type modified-type="QtScriptVoidFuture*"/>
@@ -2390,7 +2385,7 @@
                 const QtScriptVoidFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptVoidFuture*&gt;(%in%);
             </conversion-rule>
         </modify-argument>
-    </modify-function>
+    </modify-function>  
     <modify-function signature="QFuture(const QFuture &amp;)">
         <modify-argument index="1">
             <replace-type modified-type="QtScriptVoidFuture*"/>
@@ -2398,7 +2393,7 @@
                 const QtScriptVoidFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptVoidFuture*&gt;(%in%);
             </conversion-rule>
         </modify-argument>
-    </modify-function>
+    </modify-function>    
   </value-type>
   <value-type name="QtScriptFuture" java-name="QFuture" generic-class="yes">
     <modify-function signature="operator==(const QFuture &amp;)const">
@@ -2408,7 +2403,7 @@
                 const QtScriptFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptFuture*&gt;(%in%);
             </conversion-rule>
         </modify-argument>
-    </modify-function>
+    </modify-function>  
     <modify-function signature="QFuture(const QFuture &amp;)">
         <modify-argument index="1">
             <replace-type modified-type="QtScriptFuture"/>
@@ -2416,7 +2411,7 @@
                 const QtScriptFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptFuture*&gt;(%in%);
             </conversion-rule>
         </modify-argument>
-    </modify-function>
+    </modify-function>  
     <inject-code class="native">
     </inject-code>
   </value-type>
@@ -2424,7 +2419,7 @@
   <object-type name="QFutureWatcherBase">
     <modify-function signature="connectNotify(const char *)" remove="all"/>
     <modify-function signature="disconnectNotify(const char *)" remove="all"/>
-  </object-type>
+  </object-type>  
   <object-type name="QtScriptVoidFutureWatcher" java-name="QFutureWatcherVoid">
     <modify-function signature="setFuture(const QFuture &amp;)">
         <modify-argument index="1">
@@ -2433,7 +2428,7 @@
                 const QtScriptVoidFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptVoidFuture*&gt;(%in%);
             </conversion-rule>
         </modify-argument>
-    </modify-function>
+    </modify-function>         
   </object-type>
 
   <object-type name="QFutureWatcher" generate="no">
@@ -2447,7 +2442,7 @@
                 const QtScriptFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptFuture*&gt;(%in%);
             </conversion-rule>
         </modify-argument>
-    </modify-function>
+    </modify-function>         
   </object-type>
 
   <object-type name="QFutureSynchronizer" generate="no"/>
@@ -2467,7 +2462,7 @@
                 const QtScriptFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptFuture*&gt;(%in%);
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
       <modify-function signature="setFuture(const QFuture &amp;)">
         <modify-argument index="1">
             <replace-type modified-type="QtScriptFuture*"/>
@@ -2475,7 +2470,7 @@
                 const QtScriptFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptFuture*&gt;(%in%);
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>            
       <modify-function signature="futures()const" remove="all"/>
   </object-type>
   <object-type name="QtScriptVoidFutureSynchronizer" java-name="QFutureSynchronizerVoid">
@@ -2494,7 +2489,7 @@
                 const QtScriptVoidFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptVoidFuture*&gt;(%in%);
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
       <modify-function signature="setFuture(const QFuture &amp;)">
         <modify-argument index="1">
             <replace-type modified-type="QtScriptVoidFuture*"/>
@@ -2502,7 +2497,7 @@
                 const QtScriptVoidFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptVoidFuture*&gt;(%in%);
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>                  
       <modify-function signature="futures()const" remove="all"/>
   </object-type>
   <object-type name="QThreadPool"/>
@@ -2518,7 +2513,7 @@
                 const QtScriptFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptFuture*&gt;(%in%);
             </conversion-rule>
         </modify-argument>
-    </modify-function>
+    </modify-function>       
   </object-type>
   <object-type name="QRunnable"/>
 
@@ -2532,7 +2527,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="namespaceUri()const">
         <modify-argument index="return">
@@ -2540,7 +2535,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="prefix()const">
         <modify-argument index="return">
@@ -2548,7 +2543,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="qualifiedName()const">
         <modify-argument index="return">
@@ -2556,7 +2551,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="value()const">
         <modify-argument index="return">
@@ -2564,7 +2559,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
     </value-type>
     <value-type name="QXmlStreamAttributes">
@@ -2578,16 +2573,16 @@
 
         <modify-function signature="value(const QString &amp;, const QLatin1String &amp;)const">
             <remove/>
-        </modify-function>
+        </modify-function>            
         <modify-function signature="value(const QLatin1String &amp;, const QLatin1String &amp;)const">
             <remove/>
-        </modify-function>
+        </modify-function>            
         <modify-function signature="value(const QLatin1String &amp;)const">
-            <remove/>
-        </modify-function>
+            <remove/>            
+        </modify-function>            
         <modify-function signature="hasAttribute(const QLatin1String &amp;)const">
-            <remove/>
-        </modify-function>
+            <remove/>            
+        </modify-function>            
 
 
       <modify-function signature="value(QString,QString)const">
@@ -2596,7 +2591,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="value(QString)const">
         <modify-argument index="return">
@@ -2604,7 +2599,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
     </value-type>
     <value-type name="QXmlStreamNamespaceDeclaration">
@@ -2616,7 +2611,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="prefix()const">
         <modify-argument index="return">
@@ -2624,7 +2619,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
     </value-type>
     <value-type name="QXmlStreamNotationDeclaration">
@@ -2636,7 +2631,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="publicId()const">
         <modify-argument index="return">
@@ -2644,7 +2639,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="systemId()const">
         <modify-argument index="return">
@@ -2652,7 +2647,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
     </value-type>
     <value-type name="QXmlStreamEntityDeclaration">
@@ -2664,7 +2659,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="notationName()const">
         <modify-argument index="return">
@@ -2672,7 +2667,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="publicId()const">
         <modify-argument index="return">
@@ -2680,7 +2675,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="systemId()const">
         <modify-argument index="return">
@@ -2688,7 +2683,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="value()const">
         <modify-argument index="return">
@@ -2696,7 +2691,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
     </value-type>
     <object-type name="QXmlStreamReader">
@@ -2706,7 +2701,7 @@
         <modify-argument index="1">
             <reference-count action="set" variable-name="__rcEntityResolver"/>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="name()const">
         <modify-argument index="return">
@@ -2714,7 +2709,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="documentEncoding()const">
         <modify-argument index="return">
@@ -2722,7 +2717,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="documentVersion()const">
         <modify-argument index="return">
@@ -2730,7 +2725,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="dtdName()const">
         <modify-argument index="return">
@@ -2738,7 +2733,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="dtdPublicId()const">
         <modify-argument index="return">
@@ -2746,7 +2741,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="dtdSystemId()const">
         <modify-argument index="return">
@@ -2754,7 +2749,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="namespaceUri()const">
         <modify-argument index="return">
@@ -2762,7 +2757,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="prefix()const">
         <modify-argument index="return">
@@ -2770,7 +2765,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="processingInstructionData()const">
         <modify-argument index="return">
@@ -2778,7 +2773,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="processingInstructionTarget()const">
         <modify-argument index="return">
@@ -2786,7 +2781,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="qualifiedName()const">
         <modify-argument index="return">
@@ -2794,7 +2789,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
 
       <modify-function signature="text()const">
         <modify-argument index="return">
@@ -2802,7 +2797,7 @@
             <insert-template name="core.convert_stringref_to_string"/>
             </conversion-rule>
         </modify-argument>
-      </modify-function>
+      </modify-function>      
     </object-type>
     <object-type name="QXmlStreamWriter">
         <modify-function signature="QXmlStreamWriter(QString *)">
@@ -2831,7 +2826,17 @@
     <enum-type name="QXmlStreamReader::ReadElementTextBehaviour"/>
 
     <value-type name="QModelIndex"/>
-  <value-type name="QMargins"/>
+
+    <value-type name="QMargins">
+        <modify-function signature="operator+=(const QMargins &amp;)" remove="all"/>
+        <modify-function signature="operator-=(const QMargins &amp;)" remove="all"/>
+        <modify-function signature="operator+=(int)" remove="all"/>
+        <modify-function signature="operator-=(int)" remove="all"/>
+        <modify-function signature="operator*=(int)" remove="all"/>
+        <modify-function signature="operator/=(int)" remove="all"/>
+        <modify-function signature="operator*=(qreal)" remove="all"/>
+        <modify-function signature="operator/=(qreal)" remove="all"/>
+    </value-type>
 
   <!-- Inefficient hash codes -->
   <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QUuid' has equals operators but no qHash() function. Hashcode of objects will consistently be 0."/>
