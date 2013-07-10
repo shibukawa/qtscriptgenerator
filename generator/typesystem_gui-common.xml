@@ -331,7 +331,7 @@
   </value-type>
 
   <value-type name="QIcon" delete-in-main-thread="yes">
-    <include file-name="QIconEngine" location="global"/>
+      <!--<include file-name="QIconEngine" location="global"/>-->
     <modify-function signature="operator=(QIcon)" remove="all"/>
     <modify-function signature="serialNumber()const" remove="all"/> <!--### Obsolete in 4.3-->
     <!--modify-function signature="QIcon(QIconEngineV2 *)">
@@ -339,11 +339,7 @@
             <define-ownership class="java" owner="c++" />
         </modify-argument>
     </modify-function-->
-    <modify-function signature="QIcon(QIconEngine *)">
-        <modify-argument index="1">
-            <define-ownership class="java" owner="c++" />
-        </modify-argument>
-    </modify-function>
+    <modify-function signature="QIcon(QIconEngine *)" remove="all" />
   </value-type>
 
   <value-type name="QTextFrame::iterator" delete-in-main-thread="yes">

@@ -1043,7 +1043,10 @@
   <object-type name="QReadWriteLock"/>
   <object-type name="QDirIterator"/>
   <object-type name="QAbstractFileEngineIterator"/>
-  <object-type name="QAbstractItemModel"/>
+  <object-type name="QAbstractItemModel">
+      <modify-function signature="encodeData(const QList&lt;QModelIndex&gt;&amp;,QDataStream&amp;)const" remove="all"/>
+      <modify-function signature="decodeData(int,int,const QModelIndex&amp;,QDataStream&amp;)" remove="all"/>
+  </object-type>
 
   <object-type name="QAbstractListModel">
     <extra-includes>
@@ -1106,7 +1109,7 @@
         <replace-type modified-type="QFile*"/>
         <conversion-rule class="native">
         QFile &amp; %out% = *qscriptvalue_cast&lt;QFile*&gt;(%in%);
-        </conversion-rule>            
+        </conversion-rule>
       </modify-argument>
     </modify-function>
     <modify-function signature="setFile(QFile)">
