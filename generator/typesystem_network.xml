@@ -13,15 +13,7 @@
   <enum-type name="QAbstractSocket::SocketState"/>
   <enum-type name="QAbstractSocket::SocketType"/>
   <enum-type name="QAbstractSocket::SocketOption"/>
-  <enum-type name="QFtp::Command"/>
-  <enum-type name="QFtp::Error"/>
-  <enum-type name="QFtp::State"/>
-  <enum-type name="QFtp::TransferMode"/>
-  <enum-type name="QFtp::TransferType"/>
   <enum-type name="QHostAddress::SpecialAddress"/>
-  <enum-type name="QHttp::Error"/>
-  <enum-type name="QHttp::State"/>
-  <enum-type name="QHttp::ConnectionMode"/>
   <enum-type name="QNetworkInterface::InterfaceFlag" flags="QNetworkInterface::InterfaceFlags"/>
   <enum-type name="QNetworkProxy::ProxyType"/>
   <enum-type name="QUdpSocket::BindFlag" flags="QUdpSocket::BindMode"/>
@@ -71,11 +63,7 @@
   </value-type>
 
   <object-type name="QAbstractSocket"/>
-  <object-type name="QFtp"/>
 
-  <object-type name="QHttp">
-      <modify-function signature="closeConnection()" remove="all"/>
-  </object-type>
   <object-type name="QTcpServer">
     <modify-function signature="waitForNewConnection(int,bool*)">
       <modify-argument index="2">
@@ -88,11 +76,6 @@
     <modify-function signature="writeDatagram(const char*,qint64,QHostAddress,unsigned short)" remove="all"/>
   </object-type>
 
-  <object-type name="QHttpHeader">
-    <modify-function signature="operator=(QHttpHeader)" remove="all"/>
-  
-    <modify-function signature="QHttpHeader(QHttpHeader)" remove="all"/>
-  </object-type>
   <object-type name="QLocalServer">
     <modify-function signature="waitForNewConnection(int,bool*)">
       <modify-argument index="2">
@@ -137,17 +120,9 @@
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_char*"/>
-        </conversion-rule>            
+        </conversion-rule>
       </modify-argument>
     </modify-function>
-  </value-type>
-
-  <value-type name="QHttpRequestHeader">
-    <modify-function signature="operator=(QHttpRequestHeader)" remove="all"/>
-  </value-type>
-
-  <value-type name="QHttpResponseHeader">
-    <modify-function signature="operator=(QHttpResponseHeader)" remove="all"/>
   </value-type>
 
   <value-type name="QNetworkAddressEntry">

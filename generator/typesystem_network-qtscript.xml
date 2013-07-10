@@ -1,9 +1,5 @@
 <?xml version="1.0"?>
 <typesystem package="com.trolltech.qt.network">
-    
-  <object-type name="QHttpHeader">
-    <modify-function signature="QHttpHeader(QHttpHeader)" remove="all"/>
-  </object-type>
 
   <value-type name="QNetworkCookie">
     <extra-includes>
@@ -23,7 +19,7 @@
         <replace-type modified-type="QString"/>
         <conversion-rule class="native">
           <insert-template name="core.convert_string_arg_to_char*"/>
-        </conversion-rule>            
+        </conversion-rule>
       </modify-argument>
     </modify-function>
   </value-type>
