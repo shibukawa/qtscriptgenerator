@@ -78,7 +78,12 @@
     </extra-includes>
   </namespace-type>
 
-    <rejection class="QByteArray" function-name="contains"/>
+  <rejection class="QByteArray" function-name="contains"/>
+
+  <object-type name="QAbstractItemModel">
+      <modify-function signature="encodeData(const QList&lt;QModelIndex&gt;&amp;,QDataStream&amp;)const" remove="all" />
+      <modify-function signature="decodeData(int,int,const QModelIndex&amp;,QDataStream&amp;)" remove="all" />
+  </object-type>
 
   <value-type name="QFileInfo">
     <modify-function signature="QFileInfo(QFile)">
@@ -86,7 +91,7 @@
         <replace-type modified-type="QFile*"/>
         <conversion-rule class="native">
         QFile &amp; %out% = *qscriptvalue_cast&lt;QFile*&gt;(%in%);
-        </conversion-rule>            
+        </conversion-rule>
       </modify-argument>
     </modify-function>
     <modify-function signature="setFile(QFile)">
