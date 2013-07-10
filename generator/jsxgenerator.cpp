@@ -47,6 +47,9 @@ QList<int> uniqueEnumValueIndexes(const AbstractMetaEnumValueList &values);
 
 JSXGenerator::JSXGenerator()
 {
+    _ignoreFileList.insert("long");
+    _ignoreFileList.insert("intlist");
+    _ignoreFileList.insert("qhttpresponseheader");
     _ignoreFileList.insert("qstring");
     _ignoreFileList.insert("qlist");
     _ignoreFileList.insert("qstringlist");
@@ -143,12 +146,6 @@ static void addIncludeFile(QSet<QString> &includes, QString name)
             includes.insert(name.left(name.indexOf("_")).toLower());
         }
         break;
-    case 3:
-        if (name.startsWith("Qt_Phonon_"))
-        {
-            name.remove(0, 10);
-            includes.insert(name.left(name.indexOf("_")).toLower());
-        }
     }
 }
 
@@ -206,12 +203,13 @@ void JSXGenerator::generate()
         writeInclude(file.stream, "qbrush");
         writeInclude(file.stream, "qcolor");
         writeInclude(file.stream, "qclipboard");
+        writeInclude(file.stream, "qdoublevalidator");
         writeInclude(file.stream, "qdate");
         writeInclude(file.stream, "qdockwidget");
         writeInclude(file.stream, "qfont");
+        writeInclude(file.stream, "qgraphicsitem");
         writeInclude(file.stream, "qgraphicsblureffect");
         writeInclude(file.stream, "qheaderview");
-        writeInclude(file.stream, "qhttpresponseheader");
         writeInclude(file.stream, "qimagereader");
         writeInclude(file.stream, "qitemselection");
         writeInclude(file.stream, "qlistwidgetitem");
@@ -246,12 +244,8 @@ void JSXGenerator::generate()
         writeInclude(file.stream, "qtreewidgetitem");
         writeInclude(file.stream, "qundostack");
         writeInclude(file.stream, "qurl");
-        writeInclude(file.stream, "qurlinfo");
         writeInclude(file.stream, "qwebframe");
         writeInclude(file.stream, "qwidget");
-        writeInclude(file.stream, "phonon");
-        writeInclude(file.stream, "audiooutputdevice");
-        writeInclude(file.stream, "mediasource");
         writeInclude(file.stream, "qt");
 
         QMap<QString, QString>::const_iterator it;
@@ -263,13 +257,6 @@ void JSXGenerator::generate()
                             << it.value() << "):void): void;" << endl
                         << "}" << endl << endl;
         }
-    }
-
-    {
-        // hub file
-        FileOut file(m_out_dir + "/jsx/qt/objectdescription.jsx");
-        writeSourceHeader(file.stream, "Phonon Objects");
-        writeInclude(file.stream, "phonon");
     }
 
     {
@@ -414,8 +401,7 @@ static bool skipType(QString& type)
             type == "Qt_QPainterPath_Element" || type == "Qt_QTextCodec_ConverterState" ||
             type == "Qt_QAbstractItemView_DropIndicatorPosition" || type == "Qt_QAbstractItemView_State" ||
             type == "QAbstractProxyModel" || type == "Qt_QFontDatabase_WritingSystem" ||
-            type == "Qt_QTextEdit_ExtraSelection[]" || type == "Qt_Phonon_AddonInterface_Interface" ||
-            type == "Qt_Phonon_BackendInterface_Class" || type == "Qt_QSqlResult_BindingSyntax");
+            type == "Qt_QTextEdit_ExtraSelection[]" || type == "Qt_QSqlResult_BindingSyntax");
 }
 
 static bool skipMethod(const AbstractMetaClass* meta_class, const AbstractMetaFunction* func)
@@ -799,6 +785,7 @@ void JSXGenerator::write(QTextStream &o, const AbstractMetaClass *meta_class)
     nativeTypes["QStringRef"] = "string";
     nativeTypes["QChar"] = "string";
     nativeTypes["char"] = "string";
+    nativeTypes["intList"] = "int[]";
     nativeTypes["unsigned char"] = "int";
     nativeTypes["signed int"] = "int";
     nativeTypes["signed short"] = "int";
@@ -806,6 +793,7 @@ void JSXGenerator::write(QTextStream &o, const AbstractMetaClass *meta_class)
     nativeTypes["uchar"] = "int";
     nativeTypes["ushort"] = "int";
     nativeTypes["ulong"] = "int";
+    nativeTypes["long"] = "int";
     nativeTypes["short"] = "int";
     nativeTypes["uint"] = "int";
     nativeTypes["uint[]"] = "int[]";
@@ -841,35 +829,6 @@ void JSXGenerator::write(QTextStream &o, const AbstractMetaClass *meta_class)
     nativeTypes["Qt_QWebPluginFactory_ExtensionOption"] = "QWebPluginFactory_ExtensionOption";
     nativeTypes["Qt_QWebPluginFactory_ExtensionReturn"] = "QWebPluginFactory_ExtensionReturn";
     nativeTypes["Qt_QWebPluginFactory_Plugin[]"] = "QWebPluginFactory_Plugin[]";
-    nativeTypes["Qt_Phonon_AbstractMediaStream"] = "AbstractMediaStream";
-    nativeTypes["Qt_Phonon_AudioCaptureDevice[]"] = "AudioCaptureDevice[]";
-    nativeTypes["Qt_Phonon_AudioChannelDescription"] = "AudioChannelDescription";
-    nativeTypes["Qt_Phonon_AudioChannelDescription[]"] = "AudioChannelDescription[]";
-    nativeTypes["Qt_Phonon_AudioOutput"] = "AudioOutput";
-    nativeTypes["Qt_Phonon_AudioOutputDevice"] = "AudioOutputDevice";
-    nativeTypes["Qt_Phonon_AudioOutputDevice[]"] = "AudioOutputDevice[]";
-    nativeTypes["Phonon_AudioOutputDevice"] = "AudioOutputDevice";
-    nativeTypes["Qt_Phonon_Effect"] = "Effect";
-    nativeTypes["Qt_Phonon_Effect[]"] = "Effect[]";
-    nativeTypes["Qt_Phonon_EffectDescription[]"] = "EffectDescription[]";
-    nativeTypes["Qt_Phonon_EffectParameter"] = "EffectParameter";
-    nativeTypes["Qt_Phonon_EffectParameter[]"] = "EffectParameter[]";
-    nativeTypes["Qt_Phonon_EffectParameter_Hints"] = "Qt_EffectParameter_Hints";
-    nativeTypes["Qt_Phonon_EffectDescription"] = "EffectDescription";
-    nativeTypes["Qt_Phonon_MediaController_Features"] = "Qt_MediaController_Features";
-    nativeTypes["Qt_Phonon_MediaNode"] = "MediaNode";
-    nativeTypes["Qt_Phonon_MediaObject"] = "MediaObject";
-    nativeTypes["Qt_Phonon_MediaSource"] = "MediaSource";
-    nativeTypes["Qt_Phonon_MediaSource[]"] = "MediaSource[]";
-    nativeTypes["Qt_Phonon_MediaSource_Type"] = "Qt_MediaSource_Type";
-    nativeTypes["Qt_Phonon_Path"] = "Path";
-    nativeTypes["Qt_Phonon_Path[]"] = "Path[]";
-    nativeTypes["Qt_Phonon_SubtitleDescription"] = "SubtitleDescription";
-    nativeTypes["Qt_Phonon_SubtitleDescription[]"] = "SubtitleDescription[]";
-    nativeTypes["Qt_Phonon_VideoWidget"] = "VideoWidget";
-    nativeTypes["Qt_Phonon_VideoWidget_AspectRatio"] = "Qt_VideoWidget_AspectRatio";
-    nativeTypes["Qt_Phonon_VideoWidget_ScaleMode"] = "Qt_VideoWidget_ScaleMode";
-    nativeTypes["Qt_Phonon_VolumeFaderEffect_FadeCurve"] = "Qt_VolumeFaderEffect_FadeCurve";
     nativeTypes["Qt_QSql_ParamTypeFlags"] = "Qt_QSql_ParamType";
     nativeTypes["QtMsgType"] = "Qt_Global_QtMsgType";
     nativeTypes["Qt_QTouchEvent_TouchPoint"] = "QTouchEvent_TouchPoint";
@@ -1055,6 +1014,7 @@ void JSXGenerator::write(QTextStream &o, const AbstractMetaClass *meta_class)
     {
         includes.remove(meta_class->name().toLower());
         includes.remove("int");
+        includes.remove("intlist");
         includes.remove("boolean");
         includes.remove("string");
         includes.remove("number");
