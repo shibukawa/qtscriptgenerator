@@ -4,6 +4,8 @@ xsltproc --stringparam source $PWD/typesystem_gui-qtscript.xml merge.xsl typesys
 
 xsltproc --stringparam source $PWD/typesystem_widgets-qtscript.xml merge.xsl typesystem_widgets-common.xml > typesystem_widgets.xml
 
+xsltproc --stringparam source $PWD/typesystem_multimedia-qtscript.xml merge.xsl typesystem_multimedia-common.xml > typesystem_multimedia.xml
+
 xsltproc --stringparam source $PWD/typesystem_printsupport-qtscript.xml merge.xsl typesystem_printsupport-common.xml > typesystem_printsupport.xml
 
 xsltproc --stringparam source $PWD/typesystem_svg-qtscript.xml merge.xsl typesystem_svg-common.xml > typesystem_svg.xml

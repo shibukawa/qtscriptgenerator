@@ -1081,7 +1081,6 @@
     </modify-function>
   </object-type>
   <object-type name="QSizeGrip"/>
-  <object-type name="QSound"/>
   <object-type name="QSpacerItem"/>
   <object-type name="QStandardItem">
     <modify-function signature="operator=(QStandardItem)" remove="all"/>

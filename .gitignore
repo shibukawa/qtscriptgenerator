@@ -12,9 +12,11 @@
 
 *.log
 *.o
+qtbindings/*/moc_*.cpp
 
 /generator/generator
 /generator/Makefile
 /generator/Makefile.Debug
 /generator/Makefile.Release
 /generator/release/
+.qmake.stash
