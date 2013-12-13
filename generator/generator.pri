@@ -38,9 +38,6 @@ HEADERS += \
         $$GENERATORPATH/abstractmetalang.h \
         $$GENERATORPATH/prigenerator.h \
 
-
-
-      
 SOURCES += \
         $$GENERATORPATH/generator.cpp \
         $$GENERATORPATH/main.cpp \
@@ -56,8 +53,6 @@ SOURCES += \
         $$GENERATORPATH/abstractmetalang.cpp \
         $$GENERATORPATH/prigenerator.cpp \
 
-
-   
 QT = core xml
 
 win32-msvc.net {

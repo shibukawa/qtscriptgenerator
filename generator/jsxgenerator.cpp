@@ -210,6 +210,7 @@ void JSXGenerator::generate()
         writeInclude(file.stream, "qgraphicsitem");
         writeInclude(file.stream, "qgraphicsblureffect");
         writeInclude(file.stream, "qheaderview");
+        writeInclude(file.stream, "qicon");
         writeInclude(file.stream, "qimagereader");
         writeInclude(file.stream, "qitemselection");
         writeInclude(file.stream, "qlistwidgetitem");
@@ -251,10 +252,10 @@ void JSXGenerator::generate()
         QMap<QString, QString>::const_iterator it;
         for (it = _signals.constBegin(); it != _signals.constEnd(); ++it) {
             file.stream << "native __fake__ class QtJSX" << it.key() << "Signal {" << endl
-                        << "    function connect(callback : function("
-                            << it.value() << "):void): void;" << endl
-                        << "    function disconnect(callback : function("
-                            << it.value() << "):void): void;" << endl
+                        << "    function connect(callback : ("
+                            << it.value() << ") -> void): void;" << endl
+                        << "    function disconnect(callback : ("
+                            << it.value() << ") -> void): void;" << endl
                         << "}" << endl << endl;
         }
     }
@@ -490,16 +491,17 @@ void filterFunctions(
     QMap<QString, AbstractMetaFunctionList> &prototypeFunctions,
     QMap<QString, AbstractMetaFunctionList> &staticFunctions,
     QMap<QString, AbstractMetaFunctionList> &signalFunctions,
-    QMap<QString, AbstractMetaFunctionList> &slotFunctions)
+    QMap<QString, AbstractMetaFunctionList> &slotFunctions
+    )
 {
-    AbstractMetaFunctionList functions = meta_class->functionsInTargetLang() + meta_class->queryFunctions(AbstractMetaClass::Signals);
+    AbstractMetaFunctionList functions = meta_class->functionsInTargetLang() + meta_class->cppSignalFunctions();
     for (int i = 0; i < functions.size(); ++i) {
         AbstractMetaFunction* func = functions.at(i);
         if (func->declaringClass() != meta_class)
             continue; // function inherited through prototype
         if (func->isSignal())
         {
-            signalFunctions[func->modifiedName()].append(func);
+            signalFunctions[func->originalName()].append(func);
             continue;
         }
         if (!func->isNormal())
@@ -683,7 +685,7 @@ static void writeFunction(QTextStream &o, const AbstractMetaFunction *fun, QMap<
     }
 }
 
-static void writeSignal(QTextStream &s, const AbstractMetaClass *meta_class, const AbstractMetaFunctionList &funs, QMap<QString, QString> &nativeTypes, QMap<QString, QString> &signalFunctions, QSet<QString> &includes)
+static void writeSignal(QTextStream &s, const AbstractMetaClass *meta_class, const AbstractMetaFunctionList &funs, QMap<QString, QString> &nativeTypes, QMap<QString, QString> &signalFunctions, QSet<QString> &includes, QStringList &signalAliases)
 {
     AbstractMetaFunction* shortestfun = 0;
     int length = 10000;
@@ -710,7 +712,7 @@ static void writeSignal(QTextStream &s, const AbstractMetaClass *meta_class, con
             QString name = type;
             signalName << name.replace(' ', '_');
             QString finaltype = nativeTypes.value(type, type);
-            signalArgs << ":" << finaltype;
+            signalArgs << finaltype;
             addIncludeFile(includes, finaltype);
             ++j;
         }
@@ -727,16 +729,25 @@ static void writeSignal(QTextStream &s, const AbstractMetaClass *meta_class, con
     if (shortestfun)
     {
         // JSX can't override property! Now this genertor ignores these properties!
-        if (meta_class->name() == "QPrintDialog" && shortestfun->modifiedName() == "accepted")
+        if (meta_class->name() == "QPrintDialog" && shortestfun->originalName() == "accepted")
         {
             return;
         }
-        s << "    var " << shortestfun->modifiedName();
+        s << "    var " << shortestfun->originalName();
         s << " : QtJSX";
         s << signalNameString << "Signal;" << endl;
         if (!signalFunctions.contains(signalNameString))
         {
             signalFunctions[signalNameString] = signalArgsString;
+        }
+        if (funs.length() > 1 && shortestfun->arguments().size() == 1)
+        {
+            QTextStream alias("", QIODevice::ReadWrite);
+            alias << meta_class->name() << ".prototype." << shortestfun->originalName() << " = "
+                  << meta_class->name() << ".prototype['" << shortestfun->originalName() << "("
+                  << normalizedType(shortestfun->arguments().at(0)->type(), false) << ")'];";
+            alias.seek(0);
+            signalAliases.append(alias.readAll());
         }
     }
 }
@@ -811,6 +822,7 @@ void JSXGenerator::write(QTextStream &o, const AbstractMetaClass *meta_class)
     nativeTypes["QVariant"] = "variant";
     nativeTypes["QVariant[]"] = "variant[]";
     nativeTypes["void"] = "variant";
+    nativeTypes["QUrlList"] = "QUrl[]";
     nativeTypes["QRectFList"] = "QRectF[]";
     nativeTypes["QSslErrorList"] = "QSslError[]";
     nativeTypes["QModelIndexList"] = "QModelIndex[]";
@@ -851,6 +863,7 @@ void JSXGenerator::write(QTextStream &o, const AbstractMetaClass *meta_class)
     QMap<QString, AbstractMetaFunctionList> staticFunctions;
     QMap<QString, AbstractMetaFunctionList> signalFunctions;
     QMap<QString, AbstractMetaFunctionList> slotFunctions;
+    QStringList signalAliases;
     filterFunctions(meta_class, prototypeFunctions, staticFunctions, signalFunctions, slotFunctions);
 
     QTextStream s("", QIODevice::ReadWrite);
@@ -992,7 +1005,7 @@ void JSXGenerator::write(QTextStream &o, const AbstractMetaClass *meta_class)
         s << "    // Signals" << endl;
         QMap<QString, AbstractMetaFunctionList>::const_iterator it;
         for (it = signalFunctions.constBegin(); it != signalFunctions.constEnd(); ++it) {
-            writeSignal(s, meta_class, it.value(), nativeTypes, _signals, includes);
+            writeSignal(s, meta_class, it.value(), nativeTypes, _signals, includes, signalAliases);
         }
     }
 
@@ -1009,7 +1022,19 @@ void JSXGenerator::write(QTextStream &o, const AbstractMetaClass *meta_class)
             }
         }
     }
-    s << "}" << endl;
+    s << "}";
+    if (signalAliases.length() == 0)
+    {
+        s << endl;
+    }
+    else
+    {
+        s << " = '''" << meta_class->name() << ";" << endl;
+        foreach (const QString &alias, signalAliases) {
+            s << alias << endl;
+        }
+        s << "''';" << endl;
+    }
 
     {
         includes.remove(meta_class->name().toLower());
