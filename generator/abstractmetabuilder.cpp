@@ -1524,7 +1524,7 @@ AbstractMetaFunction *AbstractMetaBuilder::traverseFunction(FunctionModelItem fu
     if (!meta_function->isAbstract())
         *meta_function += AbstractMetaAttributes::Native;
 
-    if (!function_item->isVirtual())
+    if (!function_item->isVirtual() && !meta_function->isAbstract())
         *meta_function += AbstractMetaAttributes::Final;
 
     if (function_item->isInvokable())
