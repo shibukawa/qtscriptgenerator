@@ -48,6 +48,7 @@
 #include <QtSql/QtSql>
 #include <QtSvg/QtSvg>
 #include <QtXml/QtXml>
+#include <QtMultimedia/QtMultimedia>
 
 #include <QtUiTools/QtUiTools>
 

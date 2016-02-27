@@ -5,6 +5,7 @@
 <file alias="typesystem_core.txt">typesystem_core.xml</file>
 <file alias="typesystem_gui.txt">typesystem_gui.xml</file>
 <file alias="typesystem_widgets.txt">typesystem_widgets.xml</file>
+<file alias="typesystem_multimedia.txt">typesystem_multimedia.xml</file>
 <file alias="typesystem_printsupport.txt">typesystem_printsupport.xml</file>
 <file alias="typesystem_sql.txt">typesystem_sql.xml</file>
 <file alias="typesystem_opengl.txt">typesystem_opengl.xml</file>
