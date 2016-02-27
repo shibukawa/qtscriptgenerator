@@ -1126,10 +1126,6 @@
 
   <value-type name="QByteArray">
 
-    <extra-includes>
-      <include file-name="QNoImplicitBoolCast" location="global"/>
-    </extra-includes>
-
     <!-- removed functions -->
     <modify-function signature="begin()" remove="all"/>
     <modify-function signature="begin()const" remove="all"/>
