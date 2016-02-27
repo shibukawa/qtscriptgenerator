@@ -83,8 +83,13 @@ public:
   inline pp_output_iterator &operator * () { return *this; }
   inline pp_output_iterator &operator ++ () { return *this; }
   inline pp_output_iterator operator ++ (int) { return *this; }
+  // Fix C2582 in MSVC2010/2012: http://stackoverflow.com/questions/2791525/stl-operator-behavior-change-with-visual-studio-2010
+  inline pp_output_iterator &operator=(const typename pp_output_iterator<_Container>& __v)
+  {
+    _M_result = __v._M_result;
+    return *this;
+  }
 };
-
 } // namespace rpp
 
 #endif // PP_ITERATOR_H
