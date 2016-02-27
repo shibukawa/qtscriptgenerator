@@ -1055,8 +1055,13 @@ void maybeDeclareMetaType(QTextStream &stream, const QString &typeName,
 
     nameFootPrint.replace("uint", "unsigned int");
     nameFootPrint.replace(" ", "");
-    if (nameFootPrint == QLatin1String("QStringList<QString>")) {
-        return; // ### wtf...
+    if ((nameFootPrint == QLatin1String("QStringList<QString>")) ||
+        (nameFootPrint == QLatin1String("QItemSelection"))       ||
+        (nameFootPrint == QLatin1String("QItemSelectionRange"))  ||
+        (nameFootPrint == QLatin1String("QList<QModelIndex>"))   ||
+        (nameFootPrint == QLatin1String("QModelIndexList")))
+    {
+        return;
     }
 
     if (registeredTypeNames.contains(nameFootPrint) || (QMetaType::type(name.toLatin1()) != 0))
