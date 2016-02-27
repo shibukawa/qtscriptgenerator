@@ -15,14 +15,6 @@ Q_DECLARE_METATYPE(QEvent)
 namespace QtMetaTypePrivate {
 
 template <>
-inline void *QMetaTypeFunctionHelper<QEvent, true>::Create(const void *t)
-{
-    if (t)
-        return new QEvent(*static_cast<const QEvent*>(t));
-    return new QEvent(QEvent::None);
-};
-
-template <>
 inline void *QMetaTypeFunctionHelper<QEvent, true>::Construct(void *where, const void *t)
 {
     if (t)
