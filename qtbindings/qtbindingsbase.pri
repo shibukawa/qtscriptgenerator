@@ -11,7 +11,7 @@ CONFIG(debug, debug|release) {
 
 win32:{
     QMAKE_CXXFLAGS += /MP /GS /Zi
-    QMAKE_LFLAGS += /DEBUG /OPT:REF /OPT:ICF /PDB:"$$DESTDIR\$$TARGET$$PDBEXT"
+    QMAKE_LFLAGS += /DEBUG /OPT:REF /OPT:ICF /PDB:"$$DESTDIR/$$TARGET$$PDBEXT"
 }
 
 QT += script
