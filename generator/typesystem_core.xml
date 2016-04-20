@@ -2219,6 +2219,10 @@
           <rename to="writeString"/>
           <modify-argument index="0" replace-value="this"/>
       </modify-function>
+      <modify-function signature="operator&lt;&lt;(const QStringRef&amp;)">
+          <rename to="writeStringRef"/>
+          <modify-argument index="0" replace-value="this"/>
+      </modify-function>
 
       <modify-function signature="operator&gt;&gt;(char&amp;)">
           <rename to="readByte"/>
