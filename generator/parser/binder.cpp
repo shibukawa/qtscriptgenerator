@@ -359,7 +359,7 @@ void Binder::visitFunctionDefinition(FunctionDefinitionAST *node)
   CodeModelFinder finder(model(), this);
 
   ScopeModelItem functionScope = finder.resolveScope(declarator->id, scope);
-  if (! functionScope)
+  if (! functionScope || ! declarator->id)
     {
       name_cc.run(declarator->id);
       std::cerr << "** WARNING scope not found for function definition:"
