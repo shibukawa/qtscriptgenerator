@@ -165,10 +165,15 @@ TypeInfo TypeInfo::resolveType (TypeInfo const &__type, CodeModelItem __scope)
     TypeInfo otherType(__type);
     if (__item && __item->qualifiedName().size() > 1) {
         otherType.setQualifiedName(__item->qualifiedName());
+        return otherType;
     }
 
     if (TypeAliasModelItem __alias = model_dynamic_cast<TypeAliasModelItem> (__item))
-        return resolveType (TypeInfo::combine (__alias->type (), otherType), __scope);
+    {
+        TypeInfo combined = TypeInfo::combine(__alias->type(), otherType);
+        if (combined != __type)
+            return resolveType(combined, __scope);
+    }
 
     return otherType;
 }
