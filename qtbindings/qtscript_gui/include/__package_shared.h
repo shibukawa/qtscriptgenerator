@@ -7,6 +7,9 @@
 
 #include <QtScript/qscriptvalue.h>
 #include <QtScript/QScriptEngine>
+#include <QtGui/QPainter>
+#include <QtGui/QPaintEngine>
+#include <QtGui/QTextCursor>
 
 Q_DECLARE_METATYPE(QFontInfo)
 Q_DECLARE_METATYPE(QFontMetrics)
