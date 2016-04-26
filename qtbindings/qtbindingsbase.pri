@@ -1,7 +1,6 @@
 TEMPLATE = lib
 DEPENDPATH += .
 INCLUDEPATH += .
-PDBEXT = .pdb
 
 CONFIG(debug, debug|release) {
     DESTDIR = $$PWD/../plugins/script_debug
@@ -11,7 +10,7 @@ CONFIG(debug, debug|release) {
 
 win32:{
     QMAKE_CXXFLAGS += /MP /GS /Zi
-    QMAKE_LFLAGS += /DEBUG /OPT:REF /OPT:ICF /PDB:"$$DESTDIR/$$TARGET$$PDBEXT"
+    QMAKE_LFLAGS += /DEBUG /OPT:REF /OPT:ICF
 }
 
 QT += script
