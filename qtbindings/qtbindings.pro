@@ -8,10 +8,8 @@ SUBDIRS = qtscript_core \
           qtscript_opengl \
           qtscript_sql \
           qtscript_xml \
-	  qtscript_svg \
-	  qtscript_webkit \
-	  qtscript_webkitwidgets \
-	  qtscript_xmlpatterns \
-	  qtscript_uitools \
+          qtscript_svg \
+          qtscript_xmlpatterns \
+          qtscript_uitools \
           qs_eval
 

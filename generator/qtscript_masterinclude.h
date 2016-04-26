@@ -56,11 +56,6 @@
 #  include <QtXmlPatterns/QtXmlPatterns>
 #endif
 
-#ifndef QT_NO_WEBKIT
-#  include <QtWebKit/QtWebKit>
-#  include <QtWebKitWidgets/QtWebKitWidgets>
-#endif
-
 #ifndef QT_NO_PHONON
 #  include <phonon/phonon>
 #endif

@@ -18,10 +18,6 @@ xsltproc --stringparam source $PWD/typesystem_xml-qtscript.xml merge.xsl typesys
 
 xsltproc --stringparam source $PWD/typesystem_sql-qtscript.xml merge.xsl typesystem_sql-common.xml > typesystem_sql.xml
 
-xsltproc --stringparam source $PWD/typesystem_webkit-qtscript.xml merge.xsl typesystem_webkit-common.xml > typesystem_webkit.xml
-
-xsltproc --stringparam source $PWD/typesystem_webkitwidgets-qtscript.xml merge.xsl typesystem_webkitwidgets-common.xml > typesystem_webkitwidgets.xml
-
 xsltproc --stringparam source $PWD/typesystem_xmlpatterns-qtscript.xml merge.xsl typesystem_xmlpatterns-common.xml > typesystem_xmlpatterns.xml
 
 # ./generator qtscript_masterinclude.h typesystem_core.xml --diff
