@@ -313,21 +313,21 @@ void AbstractMetaBuilder::traverseStreamOperator(FunctionModelItem item)
 }
 
 void AbstractMetaBuilder::fixQObjectForScope(TypeDatabase *types,
-					 NamespaceModelItem scope)
+                                         NamespaceModelItem scope)
 {
     foreach (ClassModelItem item, scope->classes()) {
         QString qualified_name = item->qualifiedName().join("::");
         TypeEntry *entry = types->findType(qualified_name);
         if (entry) {
-	    if (isQObject(qualified_name) && entry->isComplex()) {
+            if (isQObject(qualified_name) && entry->isComplex()) {
                 ((ComplexTypeEntry *) entry)->setQObject(true);
-	    }
-	}
+            }
+        }
     }
 
     foreach (NamespaceModelItem item, scope->namespaceMap().values()) {
         if (scope != item)
-	  fixQObjectForScope(types, item);
+          fixQObjectForScope(types, item);
     }
 }
 
@@ -876,9 +876,13 @@ void AbstractMetaBuilder::figureOutDefaultEnumArguments()
                             if (classes.front() != 0) {
                                 classes << classes.front()->baseClass();
 
+                                qDebug() << "Search enum value '" << expr << "' in '" << meta_class->name() << "' and its super classes";
+
                                 AbstractMetaClassList interfaces = classes.front()->interfaces();
-                                foreach (AbstractMetaClass *interface, interfaces)
-                                    classes << interface->primaryInterfaceImplementor();
+                                foreach (AbstractMetaClass *interface, interfaces) {
+                                    if(classes.front() != interface->primaryInterfaceImplementor())
+                                        classes << interface->primaryInterfaceImplementor();
+                                }
 
                                 e = classes.front()->findEnumForValue(expr);
                             }
@@ -1524,7 +1528,7 @@ AbstractMetaFunction *AbstractMetaBuilder::traverseFunction(FunctionModelItem fu
     if (!meta_function->isAbstract())
         *meta_function += AbstractMetaAttributes::Native;
 
-    if (!function_item->isVirtual())
+    if (!function_item->isVirtual() && !meta_function->isAbstract())
         *meta_function += AbstractMetaAttributes::Final;
 
     if (function_item->isInvokable())
@@ -1799,7 +1803,7 @@ AbstractMetaType *AbstractMetaBuilder::translateType(const TypeInfo &_typei, boo
                 return t;
 
             ClassModelItem item = m_dom->findClass(contexts.at(0));
-            if (item != 0)
+            if (item)
                 contexts += item->baseClasses();
             contexts.pop_front();
 

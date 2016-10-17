@@ -280,6 +280,7 @@
   <rejection class="QStack"/>
   <rejection class="QSysInfo"/>
   <rejection class="QTextStreamManipulator"/>
+  <rejection class="QThread"/>
   <rejection class="QThreadStorage"/>
   <rejection class="QThreadStorageData"/>
   <rejection class="QTypeInfo"/>
@@ -355,6 +356,7 @@
 
   <rejection class="QAbstractEventDispatcher" function-name="filterEvent"/>
   <rejection class="QAbstractEventDispatcher" function-name="setEventFilter"/>
+  <rejection class="QAbstractEventDispatcher" function-name="registerTimer"/>
   <rejection class="QAbstractFileEngine" function-name="beginEntryList"/>
   <rejection class="QAbstractFileEngine" function-name="endEntryList"/>
   <rejection class="QAbstractFileEngine" function-name="extension"/>
@@ -362,8 +364,6 @@
   <rejection class="QCoreApplication" function-name="eventFilter"/>
   <rejection class="QCoreApplication" function-name="filterEvent"/>
   <rejection class="QCoreApplication" function-name="setEventFilter"/>
-  <rejection class="QFile" function-name="setDecodingFunction"/>
-  <rejection class="QFile" function-name="setEncodingFunction"/>
   <rejection class="QList" function-name="begin"/>
   <rejection class="QList" function-name="constBegin"/>
   <rejection class="QList" function-name="constEnd"/>
@@ -392,6 +392,8 @@
   <rejection class="QObject" function-name="disconnectNotify"/>
   <rejection class="QObject" function-name="registerUserData"/>
   <rejection class="QObject" function-name="sender"/>
+  <rejection class="QObject" function-name="moveToThread"/>
+  <rejection class="QObject" function-name="thread"/>
   <rejection class="QTimer" function-name="singleShot"/>
   <rejection class="QProcess" function-name="pid"/>
   <rejection class="QRegion" function-name="cleanUp"/>
@@ -412,6 +414,7 @@
   <rejection class="QtConcurrent::ThreadEngineBarrier" />
 
   <rejection class="QAbstractFileEngineIterator" enum-name="EntryInfoType"/>
+  <rejection class="QDataStream"/>
   <rejection class="QDataStream" enum-name="ByteOrder"/>
 
 
@@ -469,12 +472,16 @@
     <reject-enum-value name="ApplicationDeactivated"/>
   </enum-type>
   <enum-type name="QEventLoop::ProcessEventsFlag" flags="QEventLoop::ProcessEventsFlags"/>
-  <enum-type name="QFile::FileError"/>
-  <enum-type name="QFile::MemoryMapFlags" />
-  <enum-type name="QFile::Permission" flags="QFile::Permissions"/>
+  <enum-type name="QFileDevice::FileHandleFlag" flags="QFileDevice::FileHandleFlags"/>
+  <enum-type name="QFileDevice::FileError"/>
+  <enum-type name="QFileDevice::MemoryMapFlags" />
+  <enum-type name="QFileDevice::Permission" flags="QFileDevice::Permissions"/>
   <enum-type name="QIODevice::OpenModeFlag" flags="QIODevice::OpenMode"/>
   <enum-type name="QLibraryInfo::LibraryLocation"/>
   <enum-type name="QLocale::FormatType"/>
+  <enum-type name="QLocale::QuotationStyle"/>
+  <enum-type name="QLocale::CurrencySymbolFormat"/>
+  <enum-type name="QLocale::Script"/>
   <enum-type name="QLocale::NumberOption" flags="QLocale::NumberOptions"/>
   <enum-type name="QLocale::MeasurementSystem" />
   <enum-type name="QMutex::RecursionMode"/>
@@ -498,11 +505,14 @@
   <enum-type name="QTimeLine::CurveShape"/>
   <enum-type name="QTimeLine::Direction"/>
   <enum-type name="QTimeLine::State"/>
-  <enum-type name="QUrl::FormattingOption" flags="QUrl::FormattingOptions"/>
   <enum-type name="QUrl::ParsingMode"/>
   <enum-type name="QUuid::Variant"/>
   <enum-type name="QUuid::Version"/>
   <enum-type name="Qt::SizeHint" />
+  <enum-type name="Qt::TimerType" />
+  <enum-type name="Qt::CursorMoveStyle" />
+  <enum-type name="Qt::FindChildOption" />
+  <enum-type name="Qt::ScreenOrientation" />
   <enum-type name="Qt::SizeMode" />
   <enum-type name="Qt::WindowFrameSection" />
   <enum-type name="Qt::Axis"/>
@@ -866,10 +876,6 @@
 
   <value-type name="QByteArray">
 
-    <extra-includes>
-      <include file-name="QNoImplicitBoolCast" location="global"/>
-    </extra-includes>
-
     <!-- removed functions -->
     <modify-function signature="begin()" remove="all"/>
     <modify-function signature="begin()const" remove="all"/>
@@ -941,25 +947,23 @@
   <object-type name="QFinalState" />
 
   <object-type name="QXmlStreamEntityResolver" />
-  <object-type name="QAbstractEventDispatcher"/>
+  <!-- object-type name="QAbstractEventDispatcher"/ -->
   <object-type name="QEventLoop"/>
-  <object-type name="QFile">
-    <modify-function signature="readLink()const" remove="all"/>
-    <!--### Obsolete in 4.3-->
-    <modify-function signature="readLink(QString)" remove="all"/>
-    <!--### Obsolete in 4.3-->
+  <object-type name="QFile" />
+
+  <object-type name="QFileDevice">
     <modify-function signature="map(qint64,qint64,QFile::MemoryMapFlags)" remove="all" />
     <!-- Can't provide same API and performance -->
     <modify-function signature="unmap(uchar*)" remove="all" />
     <!-- Can't provide same API and performance -->
   </object-type>
-
   <object-type name="QIODevice"/>
   <object-type name="QStateMachine::SignalEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::Signal" />
   <object-type name="QStateMachine::WrappedEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::Wrapped" />
 
   <object-type name="QCryptographicHash"/>
   <object-type name="QLibraryInfo"/>
+  <object-type name="QBasicMutex"/>
   <object-type name="QMutex"/>
   <object-type name="QSemaphore"/>
   <object-type name="QSocketNotifier"/>
@@ -1315,6 +1319,9 @@
     <modify-function signature="operator&gt;&gt;(ulong&amp;)">
       <remove/>
     </modify-function>
+    <modify-function signature="operator&lt;&lt;(const QLatin1String &amp;)">
+      <remove/>
+    </modify-function>
     <modify-function signature="setString(QString*,QFlags&lt;QIODevice::OpenModeFlag&gt;)">
       <remove />
     </modify-function>
@@ -1400,7 +1407,17 @@
     <enum-type name="QXmlStreamReader::ReadElementTextBehaviour" />
 
     <value-type name="QModelIndex"/>
-  <value-type name="QMargins" />
+
+    <value-type name="QMargins">
+        <modify-function signature="operator+=(const QMargins &amp;)" remove="all" />
+        <modify-function signature="operator-=(const QMargins &amp;)" remove="all" />
+        <modify-function signature="operator+=(int)" remove="all" />
+        <modify-function signature="operator-=(int)" remove="all" />
+        <modify-function signature="operator*=(int)" remove="all" />
+        <modify-function signature="operator/=(int)" remove="all" />
+        <modify-function signature="operator*=(qreal)" remove="all" />
+        <modify-function signature="operator/=(qreal)" remove="all" />
+    </value-type>
 
   <!-- Inefficient hash codes -->
   <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QUuid' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />

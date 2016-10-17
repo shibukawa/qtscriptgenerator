@@ -1,5 +1,9 @@
 <typesystem package="com.trolltech.qt.uitools">
 
-  <object-type name="QUiLoader"/>
-  
+  <object-type name="QUiLoader">
+    <extra-includes>
+      <include file-name="QtWidgets/QAction" location="global"/>
+    </extra-includes>
+  </object-type>
+
 </typesystem>

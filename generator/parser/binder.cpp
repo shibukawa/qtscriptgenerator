@@ -359,7 +359,7 @@ void Binder::visitFunctionDefinition(FunctionDefinitionAST *node)
   CodeModelFinder finder(model(), this);
 
   ScopeModelItem functionScope = finder.resolveScope(declarator->id, scope);
-  if (! functionScope)
+  if (! functionScope || ! declarator->id)
     {
       name_cc.run(declarator->id);
       std::cerr << "** WARNING scope not found for function definition:"
@@ -748,7 +748,7 @@ static QString strip_preprocessor_lines(const QString &name)
 
 void Binder::visitEnumerator(EnumeratorAST *node)
 {
-  Q_ASSERT(_M_current_enum != 0);
+  Q_ASSERT(_M_current_enum.data() != 0);
   EnumeratorModelItem e = model()->create<EnumeratorModelItem>();
   updateItemPosition (e->toItem(), node);
   e->setName(decode_symbol(node->id)->as_string());

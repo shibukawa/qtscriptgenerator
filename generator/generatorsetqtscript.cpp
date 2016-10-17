@@ -45,12 +45,13 @@
 #include "shellheadergenerator.h"
 #include "shellimplgenerator.h"
 #include "docgenerator.h"
+#include "jsxgenerator.h"
 
 GeneratorSet *GeneratorSet::getInstance() {
     return new GeneratorSetQtScript();
 }
 
-GeneratorSetQtScript::GeneratorSetQtScript() 
+GeneratorSetQtScript::GeneratorSetQtScript()
 {}
 
 QString GeneratorSetQtScript::usage() {
@@ -80,6 +81,7 @@ QString GeneratorSetQtScript::generate() {
     AbstractMetaClassList classes = builder.classesTopologicalSorted();
     QSet<QString> declaredTypeNames = builder.qtMetaTypeDeclaredTypeNames();
 
+    /* Generate C++ */
     PriGenerator priGenerator;
     priGenerator.setOutputDirectory(outDir);
 
@@ -104,10 +106,17 @@ QString GeneratorSetQtScript::generate() {
     shellHeaderGenerator.setClasses(classes);
     shellHeaderGenerator.generate();
 
+    /* Generate Document */
     DocGenerator docGenerator;
     docGenerator.setOutputDirectory(outDir);
     docGenerator.setClasses(classes);
     docGenerator.generate();
+
+    /* Generate JSX */
+    JSXGenerator jsxGenerator;
+    jsxGenerator.setOutputDirectory(outDir);
+    jsxGenerator.setClasses(classes);
+    jsxGenerator.generate();
 
     priGenerator.generate();
     setupGenerator.generate();
@@ -120,7 +129,6 @@ QString GeneratorSetQtScript::generate() {
                    "  - modules...: %8 (%9)\n"
                    "  - pri.......: %10 (%11)\n"
                    )
-        .arg(builder.classes().size())
         .arg(classGenerator.numGenerated())
         .arg(classGenerator.numGeneratedAndWritten())
 

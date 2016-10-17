@@ -33,7 +33,7 @@
           }
     </template><template name="core.convert_stringref_to_string">
             QString %out% = %in%.toString();
-    </template><rejection class="QTextCodec::ConverterState"/><rejection class="QTextCodecFactoryInterface"/><rejection class="QAbstractEventDispatcher"/><rejection class="QAbstractFileEngine"/><rejection class="QAbstractFileEngineHandler"/><rejection class="QAbstractFileEngineIterator"/><rejection class="QFSFileEngine"/><rejection class="QSystemLocale"/><rejection class="QFutureWatcherBase"/><rejection class="QFutureSynchronizer"/><rejection class="QByteArray" function-name="contains"/><enum-type name="QXmlStreamReader::Error"/><enum-type name="QXmlStreamReader::TokenType"/><primitive-type name="bool"/><primitive-type name="double"/><primitive-type name="qreal"/><primitive-type name="float"/><primitive-type name="qint64"/><primitive-type name="__int64"/><primitive-type name="unsigned __int64"/><primitive-type name="unsigned long long"/><primitive-type name="long long"/><primitive-type name="qlonglong"/><primitive-type name="qulonglong"/><primitive-type name="short"/><primitive-type name="short"/><primitive-type name="signed short"/><primitive-type name="ushort"/><primitive-type name="unsigned short"/><primitive-type name="char"/><primitive-type name="signed char"/><primitive-type name="uchar"/><primitive-type name="unsigned char"/><primitive-type name="int"/><primitive-type name="signed int"/><primitive-type name="uint"/><primitive-type name="ulong"/><primitive-type name="unsigned int"/><primitive-type name="signed long"/><primitive-type name="long"/><primitive-type name="unsigned long"/><primitive-type name="WId"/><primitive-type name="Qt::HANDLE"/><primitive-type name="QVariant::Type"/><primitive-type name="QByteRef"/><primitive-type name="QBitRef"/><primitive-type name="QBool"/><primitive-type name="jobject"/><primitive-type name="quintptr"/><suppress-warning text="WARNING(MetaJavaBuilder) :: signal 'finished' in class 'QProcess' is overloaded."/><suppress-warning text="WARNING(MetaJavaBuilder) :: missing required class for enums: QRegExp"/><suppress-warning text="WARNING(MetaJavaBuilder) :: enum 'QtValidLicenseForScriptToolsModule' does not have a type entry or is not an enum"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Rejected enum has no alternative...: QDataStream::Qt_4_5"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unhandled enum value: Qt::MatchFlags(Qt::MatchStartsWith in Qt::MatchFlag"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unhandled enum value: Qt::MatchWrap) in Qt::MatchFlag"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unmatched enum Qt::MatchFlags(Qt::MatchStartsWith|Qt::MatchWrap) when parsing default value of 'match' in class 'QAbstractItemModel'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Unable to decide type of property: 'Qt::GestureState' in class 'QGesture'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: enum 'Qt::GestureState' does not have a type entry or is not an enum"/><suppress-warning text="WARNING(MetaJavaBuilder) :: template baseclass 'QGenericMatrix&lt;qreal&gt;' of 'QMatrix3x3' is not known"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unhandled enum value: ~0u in Qt::GestureType"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unmatched enum ~0u"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unhandled enum value: Qt::GestureFlags() in Qt::GestureFlag"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unmatched enum Qt::GestureFlags() when parsing default value of 'grabGesture' in class 'QWidget'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unmatched enum Qt::GestureFlags() when parsing default value of 'grabGesture' in class 'QGraphicsObject'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unsupported default value 'QLatin1String(defaultConnection)' of argument in function '*', class '*'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Class '*' has equals operators but no qHash() function"/><suppress-warning text="WARNING(MetaJavaBuilder) :: type '*' is specified in typesystem, but not defined. This could potentially lead to compilation errors."/><suppress-warning text="WARNING(MetaJavaBuilder) :: namespace '*' for enum '*' is not declared"/><suppress-warning text="WARNING(MetaJavaBuilder) :: skipping function '*', unmatched parameter type '*'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: skipping function '*', unmatched return type '*'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: signature '*' for function modification in '*' not found. Possible candidates: "/><suppress-warning text="WARNING(MetaJavaBuilder) :: namespace '*' does not have a type entry"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unsupported default value '*' of argument in function '*', class '*'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Shadowing: * and *; Java code will not compile"/><suppress-warning text="WARNING(MetaJavaBuilder) :: enum '*' is specified in typesystem, but not declared"/>
+    </template><rejection class="QTextCodec::ConverterState"/><rejection class="QTextCodecFactoryInterface"/><rejection class="QAbstractEventDispatcher"/><rejection class="QAbstractFileEngine"/><rejection class="QAbstractFileEngineHandler"/><rejection class="QAbstractFileEngineIterator"/><rejection class="QFSFileEngine"/><rejection class="QSystemLocale"/><rejection class="QThread"/><rejection class="QFutureWatcherBase"/><rejection class="QFutureSynchronizer"/><rejection class="QByteArray" function-name="contains"/><enum-type name="QXmlStreamReader::Error"/><enum-type name="QXmlStreamReader::TokenType"/><primitive-type name="bool"/><primitive-type name="double"/><primitive-type name="qreal"/><primitive-type name="float"/><primitive-type name="qint64"/><primitive-type name="__int64"/><primitive-type name="unsigned __int64"/><primitive-type name="unsigned long long"/><primitive-type name="long long"/><primitive-type name="qlonglong"/><primitive-type name="qulonglong"/><primitive-type name="short"/><primitive-type name="short"/><primitive-type name="signed short"/><primitive-type name="ushort"/><primitive-type name="unsigned short"/><primitive-type name="char"/><primitive-type name="signed char"/><primitive-type name="uchar"/><primitive-type name="unsigned char"/><primitive-type name="int"/><primitive-type name="signed int"/><primitive-type name="uint"/><primitive-type name="ulong"/><primitive-type name="unsigned int"/><primitive-type name="signed long"/><primitive-type name="long"/><primitive-type name="unsigned long"/><primitive-type name="WId"/><primitive-type name="Qt::HANDLE"/><primitive-type name="QVariant::Type"/><primitive-type name="QByteRef"/><primitive-type name="QBitRef"/><primitive-type name="QBool"/><primitive-type name="jobject"/><primitive-type name="quintptr"/><suppress-warning text="WARNING(MetaJavaBuilder) :: signal 'finished' in class 'QProcess' is overloaded."/><suppress-warning text="WARNING(MetaJavaBuilder) :: missing required class for enums: QRegExp"/><suppress-warning text="WARNING(MetaJavaBuilder) :: enum 'QtValidLicenseForScriptToolsModule' does not have a type entry or is not an enum"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Rejected enum has no alternative...: QDataStream::Qt_4_5"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unhandled enum value: Qt::MatchFlags(Qt::MatchStartsWith in Qt::MatchFlag"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unhandled enum value: Qt::MatchWrap) in Qt::MatchFlag"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unmatched enum Qt::MatchFlags(Qt::MatchStartsWith|Qt::MatchWrap) when parsing default value of 'match' in class 'QAbstractItemModel'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Unable to decide type of property: 'Qt::GestureState' in class 'QGesture'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: enum 'Qt::GestureState' does not have a type entry or is not an enum"/><suppress-warning text="WARNING(MetaJavaBuilder) :: template baseclass 'QGenericMatrix&lt;qreal&gt;' of 'QMatrix3x3' is not known"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unhandled enum value: ~0u in Qt::GestureType"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unmatched enum ~0u"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unhandled enum value: Qt::GestureFlags() in Qt::GestureFlag"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unmatched enum Qt::GestureFlags() when parsing default value of 'grabGesture' in class 'QWidget'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unmatched enum Qt::GestureFlags() when parsing default value of 'grabGesture' in class 'QGraphicsObject'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unsupported default value 'QLatin1String(defaultConnection)' of argument in function '*', class '*'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Class '*' has equals operators but no qHash() function"/><suppress-warning text="WARNING(MetaJavaBuilder) :: type '*' is specified in typesystem, but not defined. This could potentially lead to compilation errors."/><suppress-warning text="WARNING(MetaJavaBuilder) :: namespace '*' for enum '*' is not declared"/><suppress-warning text="WARNING(MetaJavaBuilder) :: skipping function '*', unmatched parameter type '*'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: skipping function '*', unmatched return type '*'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: signature '*' for function modification in '*' not found. Possible candidates: "/><suppress-warning text="WARNING(MetaJavaBuilder) :: namespace '*' does not have a type entry"/><suppress-warning text="WARNING(MetaJavaBuilder) :: unsupported default value '*' of argument in function '*', class '*'"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Shadowing: * and *; Java code will not compile"/><suppress-warning text="WARNING(MetaJavaBuilder) :: enum '*' is specified in typesystem, but not declared"/>
 
   <rejection class="*" function-name="d_func"/>
   <rejection class="*" function-name="data_ptr"/>
@@ -314,6 +314,7 @@
   <rejection class="QStack"/>
   <rejection class="QSysInfo"/>
   <rejection class="QTextStreamManipulator"/>
+  <rejection class="QThread"/>
   <rejection class="QThreadStorage"/>
   <rejection class="QThreadStorageData"/>
   <rejection class="QTypeInfo"/>
@@ -389,6 +390,7 @@
 
   <rejection class="QAbstractEventDispatcher" function-name="filterEvent"/>
   <rejection class="QAbstractEventDispatcher" function-name="setEventFilter"/>
+  <rejection class="QAbstractEventDispatcher" function-name="registerTimer"/>
   <rejection class="QAbstractFileEngine" function-name="beginEntryList"/>
   <rejection class="QAbstractFileEngine" function-name="endEntryList"/>
   <rejection class="QAbstractFileEngine" function-name="extension"/>
@@ -396,8 +398,6 @@
   <rejection class="QCoreApplication" function-name="eventFilter"/>
   <rejection class="QCoreApplication" function-name="filterEvent"/>
   <rejection class="QCoreApplication" function-name="setEventFilter"/>
-  <rejection class="QFile" function-name="setDecodingFunction"/>
-  <rejection class="QFile" function-name="setEncodingFunction"/>
   <rejection class="QList" function-name="begin"/>
   <rejection class="QList" function-name="constBegin"/>
   <rejection class="QList" function-name="constEnd"/>
@@ -426,6 +426,8 @@
   <rejection class="QObject" function-name="disconnectNotify"/>
   <rejection class="QObject" function-name="registerUserData"/>
   <rejection class="QObject" function-name="sender"/>
+  <rejection class="QObject" function-name="moveToThread"/>
+  <rejection class="QObject" function-name="thread"/>
   <rejection class="QTimer" function-name="singleShot"/>
   <rejection class="QProcess" function-name="pid"/>
   <rejection class="QRegion" function-name="cleanUp"/>
@@ -446,6 +448,7 @@
   <rejection class="QtConcurrent::ThreadEngineBarrier"/>
 
   <rejection class="QAbstractFileEngineIterator" enum-name="EntryInfoType"/>
+  <rejection class="QDataStream"/>
   <rejection class="QDataStream" enum-name="ByteOrder"/>
 
 
@@ -507,12 +510,16 @@
     <reject-enum-value name="ApplicationDeactivated"/>
   </enum-type>
   <enum-type name="QEventLoop::ProcessEventsFlag" flags="QEventLoop::ProcessEventsFlags"/>
-  <enum-type name="QFile::FileError"/>
-  <enum-type name="QFile::MemoryMapFlags"/>
-  <enum-type name="QFile::Permission" flags="QFile::Permissions"/>
+  <enum-type name="QFileDevice::FileHandleFlag" flags="QFileDevice::FileHandleFlags"/>
+  <enum-type name="QFileDevice::FileError"/>
+  <enum-type name="QFileDevice::MemoryMapFlags"/>
+  <enum-type name="QFileDevice::Permission" flags="QFileDevice::Permissions"/>
   <enum-type name="QIODevice::OpenModeFlag" flags="QIODevice::OpenMode"/>
   <enum-type name="QLibraryInfo::LibraryLocation"/>
   <enum-type name="QLocale::FormatType"/>
+  <enum-type name="QLocale::QuotationStyle"/>
+  <enum-type name="QLocale::CurrencySymbolFormat"/>
+  <enum-type name="QLocale::Script"/>
   <enum-type name="QLocale::NumberOption" flags="QLocale::NumberOptions"/>
   <enum-type name="QLocale::MeasurementSystem"/>
   <enum-type name="QMutex::RecursionMode"/>
@@ -536,11 +543,14 @@
   <enum-type name="QTimeLine::CurveShape"/>
   <enum-type name="QTimeLine::Direction"/>
   <enum-type name="QTimeLine::State"/>
-  <enum-type name="QUrl::FormattingOption" flags="QUrl::FormattingOptions"/>
   <enum-type name="QUrl::ParsingMode"/>
   <enum-type name="QUuid::Variant"/>
   <enum-type name="QUuid::Version"/>
   <enum-type name="Qt::SizeHint"/>
+  <enum-type name="Qt::TimerType"/>
+  <enum-type name="Qt::CursorMoveStyle"/>
+  <enum-type name="Qt::FindChildOption"/>
+  <enum-type name="Qt::ScreenOrientation"/>
   <enum-type name="Qt::SizeMode"/>
   <enum-type name="Qt::WindowFrameSection"/>
   <enum-type name="Qt::Axis"/>
@@ -1033,7 +1043,10 @@
   <object-type name="QReadWriteLock"/>
   <object-type name="QDirIterator"/>
   <object-type name="QAbstractFileEngineIterator"/>
-  <object-type name="QAbstractItemModel"/>
+  <object-type name="QAbstractItemModel">
+      <modify-function signature="encodeData(const QList&lt;QModelIndex&gt;&amp;,QDataStream&amp;)const" remove="all"/>
+      <modify-function signature="decodeData(int,int,const QModelIndex&amp;,QDataStream&amp;)" remove="all"/>
+  </object-type>
 
   <object-type name="QAbstractListModel">
     <extra-includes>
@@ -1096,7 +1109,7 @@
         <replace-type modified-type="QFile*"/>
         <conversion-rule class="native">
         QFile &amp; %out% = *qscriptvalue_cast&lt;QFile*&gt;(%in%);
-        </conversion-rule>            
+        </conversion-rule>
       </modify-argument>
     </modify-function>
     <modify-function signature="setFile(QFile)">
@@ -1112,10 +1125,6 @@
   <!-- <interface-type name="QFactoryInterface" java-name="QAbstractFactory" /> -->
 
   <value-type name="QByteArray">
-
-    <extra-includes>
-      <include file-name="QNoImplicitBoolCast" location="global"/>
-    </extra-includes>
 
     <!-- removed functions -->
     <modify-function signature="begin()" remove="all"/>
@@ -1443,28 +1452,21 @@
   <object-type name="QFinalState"/>
 
   <object-type name="QXmlStreamEntityResolver"/>
-  <object-type name="QAbstractEventDispatcher">
-    <extra-includes>
-        <include file-name="QPair" location="global"/>
-    </extra-includes>
-  </object-type>
+  <!-- object-type name="QAbstractEventDispatcher"/ -->
   <object-type name="QEventLoop"/>
   <object-type name="QFile">
-    <modify-function signature="readLink()const" remove="all"/>
-    <!--### Obsolete in 4.3-->
-    <modify-function signature="readLink(QString)" remove="all"/>
-    <!--### Obsolete in 4.3-->
-    <modify-function signature="map(qint64,qint64,QFile::MemoryMapFlags)" remove="all"/>
-    <!-- Can't provide same API and performance -->
-    <modify-function signature="unmap(uchar*)" remove="all"/>
-    <!-- Can't provide same API and performance -->
-  
     <modify-function signature="open(int,QFlags&lt;QIODevice::OpenModeFlag&gt;)" remove="all"/>
     <modify-function signature="decodeName(const char*)" remove="all"/>
     <modify-function signature="map(qint64,qint64,QFile::MemoryMapFlags)" remove="all"/>
     <modify-function signature="unmap(uchar*)" remove="all"/>
   </object-type>
 
+  <object-type name="QFileDevice">
+    <modify-function signature="map(qint64,qint64,QFile::MemoryMapFlags)" remove="all"/>
+    <!-- Can't provide same API and performance -->
+    <modify-function signature="unmap(uchar*)" remove="all"/>
+    <!-- Can't provide same API and performance -->
+  </object-type>
   <object-type name="QIODevice">
     <modify-function signature="peek(char *,qint64)" remove="all"/>
     <modify-function signature="read(char *,qint64)" remove="all"/>
@@ -1478,6 +1480,7 @@
     <modify-function signature="addData(const char*,int)" remove="all"/>
   </object-type>
   <object-type name="QLibraryInfo"/>
+  <object-type name="QBasicMutex"/>
   <object-type name="QMutex"/>
   <object-type name="QSemaphore"/>
   <object-type name="QSocketNotifier"/>
@@ -1489,8 +1492,16 @@
       <modify-argument index="1">
         <replace-type modified-type="QFile*"/>
         <conversion-rule class="native">
-        QFile &amp; %out% = *qscriptvalue_cast&lt;QFile*&gt;(%in%);
-        </conversion-rule>            
+            QFile &amp; %out% = *qscriptvalue_cast&lt;QFile*&gt;(%in%);
+        </conversion-rule>
+      </modify-argument>
+    </modify-function>
+    <modify-function signature="createNativeFile(QFile&amp;)">
+      <modify-argument index="1">
+        <replace-type modified-type="QFile*"/>
+          <conversion-rule class="native">
+            QFile &amp; %out% = *qscriptvalue_cast&lt;QFile*&gt;(%in%);
+          </conversion-rule>            
       </modify-argument>
     </modify-function>
   </object-type>
@@ -2123,6 +2134,9 @@
     <modify-function signature="operator&gt;&gt;(ulong&amp;)">
       <remove/>
     </modify-function>
+    <modify-function signature="operator&lt;&lt;(const QLatin1String &amp;)">
+      <remove/>
+    </modify-function>
     <modify-function signature="setString(QString*,QFlags&lt;QIODevice::OpenModeFlag&gt;)">
       <remove/>
     </modify-function>
@@ -2203,6 +2217,10 @@
       </modify-function>   
       <modify-function signature="operator&lt;&lt;(const QString&amp;)">
           <rename to="writeString"/>
+          <modify-argument index="0" replace-value="this"/>
+      </modify-function>
+      <modify-function signature="operator&lt;&lt;(const QStringRef&amp;)">
+          <rename to="writeStringRef"/>
           <modify-argument index="0" replace-value="this"/>
       </modify-function>
 
@@ -2365,24 +2383,36 @@
   
     <modify-function signature="operator==(const QFuture &amp;)const">
         <modify-argument index="1">
-            <replace-type modified-type="QtScriptVoidFuture"/>
+            <replace-type modified-type="QtScriptVoidFuture*"/>
+            <conversion-rule class="native">
+                const QtScriptVoidFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptVoidFuture*&gt;(%in%);
+            </conversion-rule>
         </modify-argument>
     </modify-function>  
     <modify-function signature="QFuture(const QFuture &amp;)">
         <modify-argument index="1">
-            <replace-type modified-type="QtScriptVoidFuture"/>
+            <replace-type modified-type="QtScriptVoidFuture*"/>
+            <conversion-rule class="native">
+                const QtScriptVoidFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptVoidFuture*&gt;(%in%);
+            </conversion-rule>
         </modify-argument>
     </modify-function>    
   </value-type>
   <value-type name="QtScriptFuture" java-name="QFuture" generic-class="yes">
     <modify-function signature="operator==(const QFuture &amp;)const">
         <modify-argument index="1">
-            <replace-type modified-type="QtScriptFuture"/>
+            <replace-type modified-type="QtScriptFuture*"/>
+            <conversion-rule class="native">
+                const QtScriptFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptFuture*&gt;(%in%);
+            </conversion-rule>
         </modify-argument>
     </modify-function>  
     <modify-function signature="QFuture(const QFuture &amp;)">
         <modify-argument index="1">
             <replace-type modified-type="QtScriptFuture"/>
+            <conversion-rule class="native">
+                const QtScriptFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptFuture*&gt;(%in%);
+            </conversion-rule>
         </modify-argument>
     </modify-function>  
     <inject-code class="native">
@@ -2396,7 +2426,10 @@
   <object-type name="QtScriptVoidFutureWatcher" java-name="QFutureWatcherVoid">
     <modify-function signature="setFuture(const QFuture &amp;)">
         <modify-argument index="1">
-            <replace-type modified-type="QtScriptVoidFuture"/>
+            <replace-type modified-type="QtScriptVoidFuture*"/>
+            <conversion-rule class="native">
+                const QtScriptVoidFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptVoidFuture*&gt;(%in%);
+            </conversion-rule>
         </modify-argument>
     </modify-function>         
   </object-type>
@@ -2407,7 +2440,10 @@
   <object-type name="QtScriptFutureWatcher" java-name="QFutureWatcher" generic-class="yes">
     <modify-function signature="setFuture(const QFuture &amp;)">
         <modify-argument index="1">
-            <replace-type modified-type="QtScriptFuture"/>
+            <replace-type modified-type="QtScriptFuture*"/>
+            <conversion-rule class="native">
+                const QtScriptFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptFuture*&gt;(%in%);
+            </conversion-rule>
         </modify-argument>
     </modify-function>         
   </object-type>
@@ -2416,17 +2452,26 @@
   <object-type name="QtScriptFutureSynchronizer" generic-class="yes" java-name="QFutureSynchronizer">
       <modify-function signature="QFutureSynchronizer(const QFuture &amp;)">
         <modify-argument index="1">
-            <replace-type modified-type="QtScriptFuture"/>
+            <replace-type modified-type="QtScriptFuture*"/>
+            <conversion-rule class="native">
+                const QtScriptFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptFuture*&gt;(%in%);
+            </conversion-rule>
         </modify-argument>
       </modify-function>
       <modify-function signature="addFuture(const QFuture &amp;)">
         <modify-argument index="1">
-            <replace-type modified-type="QtScriptFuture"/>
+            <replace-type modified-type="QtScriptFuture*"/>
+            <conversion-rule class="native">
+                const QtScriptFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptFuture*&gt;(%in%);
+            </conversion-rule>
         </modify-argument>
       </modify-function>      
       <modify-function signature="setFuture(const QFuture &amp;)">
         <modify-argument index="1">
-            <replace-type modified-type="QtScriptFuture"/>
+            <replace-type modified-type="QtScriptFuture*"/>
+            <conversion-rule class="native">
+                const QtScriptFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptFuture*&gt;(%in%);
+            </conversion-rule>
         </modify-argument>
       </modify-function>            
       <modify-function signature="futures()const" remove="all"/>
@@ -2434,17 +2479,26 @@
   <object-type name="QtScriptVoidFutureSynchronizer" java-name="QFutureSynchronizerVoid">
       <modify-function signature="QFutureSynchronizer(const QFuture &amp;)">
         <modify-argument index="1">
-            <replace-type modified-type="QtScriptVoidFuture"/>
+            <replace-type modified-type="QtScriptVoidFuture*"/>
+            <conversion-rule class="native">
+                const QtScriptVoidFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptVoidFuture*&gt;(%in%);
+            </conversion-rule>
         </modify-argument>
       </modify-function>
       <modify-function signature="addFuture(const QFuture &amp;)">
         <modify-argument index="1">
-            <replace-type modified-type="QtScriptVoidFuture"/>
+            <replace-type modified-type="QtScriptVoidFuture*"/>
+            <conversion-rule class="native">
+                const QtScriptVoidFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptVoidFuture*&gt;(%in%);
+            </conversion-rule>
         </modify-argument>
       </modify-function>      
       <modify-function signature="setFuture(const QFuture &amp;)">
         <modify-argument index="1">
-            <replace-type modified-type="QtScriptVoidFuture"/>
+            <replace-type modified-type="QtScriptVoidFuture*"/>
+            <conversion-rule class="native">
+                const QtScriptVoidFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptVoidFuture*&gt;(%in%);
+            </conversion-rule>
         </modify-argument>
       </modify-function>                  
       <modify-function signature="futures()const" remove="all"/>
@@ -2457,7 +2511,10 @@
   <object-type name="QtScriptFutureIterator" generic-class="yes" java-name="QFutureIterator">
     <modify-function signature="QFutureIterator(const QFuture &amp;)">
         <modify-argument index="1">
-            <replace-type modified-type="QtScriptFuture"/>
+            <replace-type modified-type="QtScriptFuture*"/>
+            <conversion-rule class="native">
+                const QtScriptFuture &amp; %out% = *qscriptvalue_cast&lt;QtScriptFuture*&gt;(%in%);
+            </conversion-rule>
         </modify-argument>
     </modify-function>       
   </object-type>
@@ -2772,7 +2829,17 @@
     <enum-type name="QXmlStreamReader::ReadElementTextBehaviour"/>
 
     <value-type name="QModelIndex"/>
-  <value-type name="QMargins"/>
+
+    <value-type name="QMargins">
+        <modify-function signature="operator+=(const QMargins &amp;)" remove="all"/>
+        <modify-function signature="operator-=(const QMargins &amp;)" remove="all"/>
+        <modify-function signature="operator+=(int)" remove="all"/>
+        <modify-function signature="operator-=(int)" remove="all"/>
+        <modify-function signature="operator*=(int)" remove="all"/>
+        <modify-function signature="operator/=(int)" remove="all"/>
+        <modify-function signature="operator*=(qreal)" remove="all"/>
+        <modify-function signature="operator/=(qreal)" remove="all"/>
+    </value-type>
 
   <!-- Inefficient hash codes -->
   <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QUuid' has equals operators but no qHash() function. Hashcode of objects will consistently be 0."/>

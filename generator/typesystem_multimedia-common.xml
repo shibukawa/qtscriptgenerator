@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<typesystem>
+  <enum-type name="QSound::Loop" />
+  <enum-type name="QSoundEffect::Loop" />
+  <enum-type name="QSoundEffect::Status" />
+  <object-type name="QSound"/>
+  <object-type name="QSoundEffect"/>
+</typesystem>

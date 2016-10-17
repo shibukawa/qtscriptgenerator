@@ -53,7 +53,7 @@ AbstractMetaType *AbstractMetaType::copy() const
     cpy->setConstant(isConstant());
     cpy->setReference(isReference());
     cpy->setIndirections(indirections());
-	cpy->setInstantiations(instantiations());
+        cpy->setInstantiations(instantiations());
     cpy->setArrayElementCount(arrayElementCount());
     cpy->setOriginalTypeDescription(originalTypeDescription());
     cpy->setOriginalTemplateType(originalTemplateType() ? originalTemplateType()->copy() : 0);
@@ -439,7 +439,7 @@ bool AbstractMetaFunction::resetObjectAfterUse(int argument_idx) const
         QList<ArgumentModification> argumentModifications = modification.argument_mods;
         foreach (ArgumentModification argumentModification, argumentModifications) {
             if (argumentModification.index == argument_idx && argumentModification.reset_after_use)
-                return true;            
+                return true;
         }
     }
 
@@ -1169,7 +1169,7 @@ QPropertySpec *AbstractMetaClass::propertySpecForReset(const QString &name) cons
 static bool functions_contains(const AbstractMetaFunctionList &l, const AbstractMetaFunction *func)
 {
     foreach (const AbstractMetaFunction *f, l) {
-		if ((f->compareTo(func) & AbstractMetaFunction::PrettySimilar) == AbstractMetaFunction::PrettySimilar)
+                if ((f->compareTo(func) & AbstractMetaFunction::PrettySimilar) == AbstractMetaFunction::PrettySimilar)
             return true;
     }
     return false;
@@ -1862,7 +1862,7 @@ QString AbstractMetaType::minimalSignature() const
     if (isConstant())
         minimalSignature += "const ";
     minimalSignature += typeEntry()->qualifiedCppName();
-    if (hasInstantiations()) {
+    if (hasInstantiationInCpp()) {
         QList<AbstractMetaType *> instantiations = this->instantiations();
         minimalSignature += "<";
         for (int i=0;i<instantiations.size();++i) {
@@ -1870,11 +1870,55 @@ QString AbstractMetaType::minimalSignature() const
                 minimalSignature += ",";
             minimalSignature += instantiations.at(i)->minimalSignature();
         }
-        minimalSignature += ">";
+        minimalSignature += " >";
     }
 
+    for (int j=0; j<indirections(); ++j)
+        minimalSignature += "*";
     if (isReference())
         minimalSignature += "&";
+
+    return minimalSignature;
+}
+
+QString AbstractMetaType::minimalRef2PtrSignature() const
+{
+    QString minimalSignature;
+//    if (isConstant())
+//        minimalSignature += "const ";
+    minimalSignature += typeEntry()->qualifiedCppName();
+    if (hasInstantiationInCpp()) {
+        QList<AbstractMetaType *> instantiations = this->instantiations();
+        minimalSignature += "<";
+        for (int i=0;i<instantiations.size();++i) {
+            if (i > 0)
+                minimalSignature += ",";
+            minimalSignature += instantiations.at(i)->minimalSignature();
+        }
+        minimalSignature += " >";
+    }
+
+    for (int j=0; j<actualIndirections(); ++j)
+        minimalSignature += "*";
+
+    return minimalSignature;
+}
+
+QString AbstractMetaType::minimalNoRefNoConstSignature() const
+{
+    QString minimalSignature;
+    minimalSignature += typeEntry()->qualifiedCppName();
+    if (hasInstantiationInCpp()) {
+        QList<AbstractMetaType *> instantiations = this->instantiations();
+        minimalSignature += "<";
+        for (int i=0;i<instantiations.size();++i) {
+            if (i > 0)
+                minimalSignature += ",";
+            minimalSignature += instantiations.at(i)->minimalSignature();
+        }
+        minimalSignature += " >";
+    }
+
     for (int j=0; j<indirections(); ++j)
         minimalSignature += "*";
 
