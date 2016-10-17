@@ -84,7 +84,12 @@ public:
   inline pp_output_iterator &operator ++ () { return *this; }
   inline pp_output_iterator operator ++ (int) { return *this; }
   // Fix C2582 in MSVC2010/2012: http://stackoverflow.com/questions/2791525/stl-operator-behavior-change-with-visual-studio-2010
+  // Also works with MSVC 2015
+#ifdef _MSC_BUILD
   inline pp_output_iterator &operator=(const typename pp_output_iterator<_Container>& __v)
+#else
+  inline pp_output_iterator &operator=(const pp_output_iterator<_Container>& __v)
+#endif
   {
     _M_result = __v._M_result;
     return *this;
